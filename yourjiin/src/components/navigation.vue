@@ -7,18 +7,19 @@
         <ul class = "category-section">
             <li class = "logo"><b-img center src="https://picsum.photos/125/125/?image=58" alt="center image" /></li>
             
-            <a href="/home" class = "routes"><li class = "category">Home</li></a>
+            <router-link :to="{name : home , path : '/home'}" class = "routes"><li class = "category">Home</li></router-link>
 
-            <li class = "category" v-for="category in this.$store.state.categories" :key="category.id">
+            <li class = "category" v-for="category in this.$store.state.categories" :key="category.id" @click="PageRefresh()">
                 <router-link :to ="{ name: 'commodity', params: { id : category.id }}" class = "routes">{{category.value}}</router-link>
             </li>
 
-            <a href="/community" class = "routes"><li class = "category">Community</li></a>
+            <router-link :to="{name : community , path : '/community' }" class = "routes"><li class = "category">Community</li></router-link>
         </ul>
     </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 
 export default {
     data () {
@@ -32,6 +33,9 @@ export default {
             this.active = ! this.active; 
             this.open = !this.open;
         },
+        ...mapMutations({
+           PageRefresh : 'remove_data'
+       }),
     }
 }
 </script>

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <transition name="fade" mode="out-in">
+
+    <transition name="fade" mode="out-in" :key="$route.params.id">
       <router-view></router-view>  
     </transition>  
     <Footer></Footer>
