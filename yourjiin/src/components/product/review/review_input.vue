@@ -53,7 +53,7 @@ export default {
     }
     .inputBox{
         background : white;
-        height: 50px;
+        height: 52px;
         line-height: 50px;
         border-radius: 5px;
     }
