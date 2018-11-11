@@ -1,3 +1,5 @@
+import {storage} from './storage.js';
+
 export default{
     selected : [],
     options : [
@@ -34,6 +36,7 @@ export default{
     
     value : {
         data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45
-    }
+    },
 
+    reviews : storage.fetch(),
 }

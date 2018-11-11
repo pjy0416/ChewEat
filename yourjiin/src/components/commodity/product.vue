@@ -3,13 +3,17 @@
         <div class = "category-section-header">
             <h2>SEARCH</h2>
         </div>
-        <div class = "category-main">
-            <All v-if="this.$store.state.selected == 'ALL'"></All>
-            <Item1 v-else-if="this.$store.state.selected == 'item1'"></Item1>
-            <Item2 v-else-if="this.$store.state.selected == 'item2'"></Item2>
-            <Item3 v-else-if="this.$store.state.selected == 'item3'"></Item3>
-            <Item4 v-else-if="this.$store.state.selected == 'item4'"></Item4>
-        </div>
+        
+            <div class = "category-main">
+                <transition name = "component-fade" mode = "out-in">
+                <All v-if="this.$store.state.selected == 'ALL'"></All>
+                <Item1 v-else-if="this.$store.state.selected == 'item1'"></Item1>
+                <Item2 v-else-if="this.$store.state.selected == 'item2'"></Item2>
+                <Item3 v-else-if="this.$store.state.selected == 'item3'"></Item3>
+                <Item4 v-else-if="this.$store.state.selected == 'item4'"></Item4>
+                </transition>   
+            </div>
+        
     </div>
 </template>
 
@@ -32,6 +36,11 @@ export default {
         Item2,
         Item3,
         Item4
+    },
+    methods : {
+        computed() {
+
+        }
     }
 }
 </script>
@@ -48,4 +57,12 @@ export default {
         font-size : 2.2rem;
         font-weight: 600;
     }
+    .component-fade-enter-active, .component-fade-leave-active {
+        transition: opacity .3s ease;
+    }
+    .component-fade-enter, .component-fade-leave-to
+    /* .routing-fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+    
 </style>

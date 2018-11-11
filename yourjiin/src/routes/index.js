@@ -35,6 +35,11 @@ export const router = new VueRouter({
             name : 'item',
             props : true,
             component : ProductView
+        },
+        {
+            path : '/community',
+            name : 'community',
+
         }
     ]
 })
