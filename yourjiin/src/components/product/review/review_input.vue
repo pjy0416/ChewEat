@@ -6,14 +6,14 @@
         </span>
         <Modal v-if="showModal" @close="showModal = false">
             <h3 slot="header">
-                Notice  
+                WARNING  
             </h3>
             
             <i slot="icon" class="closeModalBtn fas fa-times fa-2x" @click="showModal = false"></i>
 
             <div slot="body">
-                No Information entered here!! <br>
-                Please enter any information
+                No Text entered here!! <br>
+                Please enter any Text
             </div>
         </Modal>
     </div>

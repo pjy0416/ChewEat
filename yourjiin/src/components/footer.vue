@@ -1,7 +1,7 @@
 <template>
     <div class = "footer-section">
         <div class = "footer-header">
-            <p>이용약관 | 개인정보 처리방침 | 법적고지 및 주의사항 | 고객센터 | 등등등</p>
+            <p>이용약관 | 개인정보 처리방침 | 법적고지 및 주의사항 | 고객센터 |</p>
         </div>
         <div class = "footer-main">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe exercitationem similique dignissimos. <br> Alias blanditiis labore inventore quisquam, magni molestiae quidem unde nam aliquid, <br> 
@@ -21,20 +21,33 @@ export default {
 
 <style scoped>
     .footer-section {
-        width : 100%;
-        padding : 20px 80px 20px 20px;
+        width : 95%;
         text-align : right;
+        padding : 10px 10px 100px 10px;
     }
     .footer-header {
-        font-size : 15px;
+        font-size : 1.3rem;
         color : grey;
     }
     .footer-main {
-        font-size : 12px;
+        font-size : 1rem;
         color : black;
     }
     .footer-footer {
-        font-size : 12px;
+        font-size : 1rem;
         color : black;
+    }
+
+    /* ////////////////////////////// */
+    @media (max-width : 500px) {
+        .footer-header {
+            font-size : 0.7rem;
+        }
+        .footer-main {
+            font-size: 0.5rem;
+        }
+        .footer-footer {
+            font-size: 0.5rem;
+        }
     }
 </style>

@@ -18,6 +18,6 @@ export default {
         };
         localStorage.setItem(getreview, JSON.stringify(obj));
         state.reviews.push(obj);
-    }
+    },
     
 }

@@ -6,7 +6,7 @@
         </div>
         <!-- 이미지 가로 길이 조정 필요 -->
         <div class = "main-container">
-            <famous-commodity></famous-commodity>
+            <famous-commodity class = "famouse-commodity"></famous-commodity>
             <Recommend></Recommend>
         </div>
     </div>
@@ -23,22 +23,28 @@ export default {
     components : {
         PageDescription,
         FamousCommodity,
-        Recommend
+        Recommend,
         // Logo,
     }
 }
 </script>
 
 <style>
-    .home-container {
-        padding : 50px 50px 50px 50px;
-        margin-left : 70px;
-    }
     .header-container {
-        margin-top : 20px;
-        margin-bottom : 20px;
+        margin-bottom : 80px;
     }
-    .main-container {
-        margin-bottom : 10px;
+    
+    .famous-commodity {
+        margin-bottom : 80px;
+    }
+
+    /* /////////////////////////////// */
+    @media(max-width : 500px) {
+        .header-container {
+            margin-bottom: 50px;
+        }
+        .famous-commodity {
+            margin-bottom: 50px;
+        }
     }
 </style>

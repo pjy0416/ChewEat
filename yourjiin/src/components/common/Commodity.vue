@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .commodity-container {
+        margin-top : 200px;
+    }
 </style>
