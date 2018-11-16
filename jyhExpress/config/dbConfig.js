@@ -12,8 +12,8 @@ export const dbConfig = {
     host            : 'localhost',
     port            : '3306',
     user            : 'root',
-    password        : 'secret',
-    database        : 'my_db'
+    password        : '123098',
+    database        : 'cheweat'
 };
 
 

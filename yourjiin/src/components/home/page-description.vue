@@ -1,9 +1,63 @@
 <template>
     <div class = "page-descriptione">
         <div class = "img-section">
-            <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image" />
-            <!-- 이미지 크기 조정 / 문구를 삽입한 이미지인지 코드로 삽입할 것인지
-            코드로 삽입할 경우 폰트의 자유로움 상실 -->
+            <div class = "logo-container">
+                <b-img src='http://drive.google.com/uc?export=view&id=18bQhp3wslCjsCawTKnS4sXxSc4iFhO1C' fluid class = "logo" />
+            </div>
+            <b-carousel id = "carousel1" :interval="3000" v-model="slide"
+                @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
+
+                <b-carousel-slide 
+                    img-src = 'http://drive.google.com/uc?export=view&id=17wMDyk578OauZXcksElbIA_4QGgPbdGd'>
+                </b-carousel-slide>
+                <b-carousel-slide
+                    img-src = 'http://drive.google.com/uc?export=view&id=17wMDyk578OauZXcksElbIA_4QGgPbdGd'>
+                </b-carousel-slide>
+                <b-carousel-slide 
+                    img-src = 'http://drive.google.com/uc?export=view&id=17wMDyk578OauZXcksElbIA_4QGgPbdGd'>
+                </b-carousel-slide>
+            </b-carousel>
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        data(){
+            return {
+                slide : 0,
+                sliding : null,
+            }
+        },
+        methods : {
+            onSlideStart(){
+                this.sliding = true
+            },
+            onSlideEnd(){
+                this.sliding = false
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .page-description {
+        z-index : 9999;
+    }
+    .logo-container{
+        position : absolute;
+        top : 30px;
+        left : 40%;
+        z-index : 1;
+    }
+    .logo {
+        width : 30%;
+    }
+
+    /* ////////////////////////////////*/
+    @media (max-width : 500px) {
+        .logo {
+            width : 30%;
+        }
+    }
+</style>

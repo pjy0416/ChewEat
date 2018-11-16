@@ -12,7 +12,6 @@
 <script>
 import Navigation from './components/navigation.vue';
 import Footer from './components/footer.vue';
-
 export default {
   name: 'app',
   components: {
@@ -33,5 +32,6 @@ export default {
   }
   #app {
     font-family: 'Noto Sans', sans-serif;
+    background-color: #EEEEEF;
   }
 </style>

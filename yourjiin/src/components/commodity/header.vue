@@ -1,8 +1,6 @@
 <template>
     <div class = "commodity-name">
-        <!-- <h2 class = "header">{{ header | capitalize }}</h2> -->
-        <h2 class = "commodity-header">{{ $route.params.id | capitalize }}</h2>
-        <!-- 후에 데이터 전역화를 통해서 바꾸기 -->
+        <p class = "commodity-header">{{ $route.params.id | capitalize }}</p>
     </div>
 </template>
 
@@ -25,16 +23,29 @@ export default {
 
 <style scoped>
     .commodity-name {
-        text-align : center;
-    }
-    .commodity-header {
-        width : 70%;
+        width : 40%;
         display : block;
         margin-left : auto;
         margin-right : auto;
-        padding : 20px 10px 10px 20px;
-        font-size : 2.7rem;
-        font-weight: 700;
+        text-align: center;
+        background-color : #FF3820;
+        border-radius : 20px 20px 0 0;
+    }
+    .commodity-header {
+        font-size : 2rem;
+        font-weight: 900;
         letter-spacing: 5px;
+        margin : 0 0 0 0;
+        color : white;
+    }
+
+    /* /////////////////////////////// */
+    @media(max-width : 500px) {
+        .commodity-name {
+            width : 50%;
+        }
+        .commodity-header {
+            font-size : 1.7rem;
+        }
     }
 </style>

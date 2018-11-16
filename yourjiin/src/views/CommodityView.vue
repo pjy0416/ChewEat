@@ -1,7 +1,10 @@
 <template>
     <transition name = "fade" mode = "out-in">
         <div :key="$route.params.id">
-            <Commodity></Commodity>
+            <Logo></Logo>
+            <div id = "commodity">
+                <Commodity></Commodity>
+            </div>
             <transition name = "component-fade" mode = "out-in">  
                 <Product></Product>
             </transition>
@@ -12,12 +15,14 @@
 <script>
 
 import Commodity from '../components/common/Commodity.vue';
-import Product from '../components/commodity/product.vue';
+import Product from '../components/commodity/productsection.vue';
+import Logo from '../components/common/logo.vue';
 
 export default {
     components : {
         Commodity,
-        Product
+        Product,
+        Logo
     },  
 }
 </script>
@@ -36,5 +41,8 @@ export default {
     .fade-enter, .fade-leave-to
     /* .routing-fade-leave-active below version 2.1.8 */ {
         opacity: 0;
+    }
+    #commodity {
+        margin-top : 150px;
     }
 </style>
