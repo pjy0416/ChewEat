@@ -1,9 +1,13 @@
 <template>
+<!-- <label for="male">Male</label>
+  <input type="radio" name="gender" id="male" value="male"> -->
+  
     <div class = "inputBox shadow">
         <input type="text" v-model="review" v-on:keyup.enter="addTodo">
         <span class = "addContainer" @click="addTodo">
-            <i class="fas fa-plus addBtn"></i>
+            <i class="fas fa-paper-plane fa-lg addBtn" style="color : #FF3820;"></i>
         </span>
+        
         <Modal v-if="showModal" @close="showModal = false">
             <h3 slot="header">
                 WARNING  
@@ -58,12 +62,14 @@ export default {
         border-radius: 5px;
     }
     .inputBox input{
+        width : 80%;
+        text-align : center;
         border-style: none;
         font-size : 1rem;
     }
     .addContainer {
         float : right;
-        background : linear-gradient(to right, #6478FB, #8763FB);
+        background : white;
         width: 3rem;
         border-radius: 0 5px 0 5px;
     }
@@ -78,6 +84,9 @@ export default {
         color : #42b983;
         float : right;
         /* margin-top : 3%; */
+    }
+    @media(min-width : 700px) {
+
     }
 </style>
 

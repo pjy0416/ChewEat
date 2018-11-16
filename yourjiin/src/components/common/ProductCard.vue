@@ -1,16 +1,16 @@
 <template>
-    <div class = "item-container">
+    <div class = "product-container">
         <div class = "product-item" >
-            <div class = "product-align" v-for="item in this.$store.state.products" :key="item.id" >
-                <div class = "item">
-                    <div class = "item-left-section">
-                        <img class = "item-img" :src="item.src" fluid-grow />
+            <div class = "product-align" v-for="item in this.$store.state.products" :key="item.id">
+                <div class = "product">
+                    <div class = "product-left-section">
+                        <img class = "product-img" :src="item.src" fluid />
                     </div>
-                    <div class = "item-right-section">
-                        <span class = "item-text">
+                    <div class = "product-right-section">
+                        <span class = "product-text">
                             <div class = "text-header">
                                 <router-link :to="{ name: 'item', params: { item : item.item }}">
-                                    <p>{{item.title}}</p>
+                                    <p @click="send_data(item)">{{item.title}}</p>
                                 </router-link>  
                             </div>
                             <div class = "text-main">
@@ -19,7 +19,6 @@
                                 <p> DESCRIPT</p>
                                 <p>{{item.dec}}</p>
                             </div>
-                            
                         </span>
                     </div>
                 </div>  
@@ -29,7 +28,14 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
+    methods : {
+        ...mapMutations({
+            send_data : 'Send_data'
+        }),
+    }
 }
 </script>
 
@@ -48,7 +54,7 @@ export default {
     }
     /* //////////////////////////////// */
     
-    .item {
+    .product {
         display : flex;
         margin-bottom : 30px;
         width : 100%;
@@ -56,15 +62,15 @@ export default {
         /* background-color: white; */
         
     }
-    .item-left-section , .item-right-section{ 
+    .product-left-section , .product-right-section{ 
         width : 50%;
         /* min-height : inherit; */
     }
-    .item-right-section {
+    .product-right-section {
         background-color: white;
         border-radius : 0 15px 0 0;
     }
-    .item-img {
+    .product-img {
         vertical-align : top;
         width : 100%;
         height : 100%;
@@ -76,8 +82,14 @@ export default {
         font-size : 1.6rem;
         font-weight: bold;
         padding : 10px 8px 10px 8px;
-        color : white;
         border-radius : 0 15px 15px 0; 
+    }
+    .text-header a{
+        color : white;
+        text-decoration: none;
+    }
+    .text-header a:hover {
+        color : black;
     }
     .text-header p , .text-main p{
         margin : 0;
@@ -96,6 +108,8 @@ export default {
         font-size : 1.3rem;
         padding : 20px 10px 20px 10px;
     }
+
+
 /* /////////////////////////////////////// */
     
     @media (max-width : 700px) {
@@ -108,7 +122,7 @@ export default {
             margin-left : auto;
             margin-right : auto;
         }
-        .item-img {
+        .product-img {
             width : 100%;
             height : 100%;
             object-fit : contain;  

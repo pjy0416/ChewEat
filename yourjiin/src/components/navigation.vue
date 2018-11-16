@@ -6,8 +6,8 @@
                 <i class="fas fa-times fa-3x close-btn" v-else style="color : white;"></i>
             </div>
             <div v-else>
-                <i class="fas fa-bars fa-3x open-btn" v-if="this.open == false" style="color : #FF3820;"></i>
-                <i class="fas fa-times fa-3x close-btn" v-else style="color : #FF3820;"></i>
+                <i class="fas fa-bars fa-2x open-btn" v-if="this.open == false" style="color : #FF3820;"></i>
+                <i class="fas fa-times fa-2x close-btn" v-else style="color : #FF3820;"></i>
             </div>
         </div>
         <ul class = "category-section">
@@ -89,7 +89,7 @@ export default {
     }
     .toggle-btn {
         position : absolute;
-        left : 110px;
+        left : 130px;
         top : 30px;
     }
     

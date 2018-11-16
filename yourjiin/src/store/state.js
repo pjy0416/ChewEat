@@ -48,22 +48,30 @@ export default{
 
     products : [
         {id : 0, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title0', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '123'},
+            title : 'title0', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '123', item : 'item1',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
         {id : 1, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title1', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '500'},
+            title : 'title1', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '500', item : 'item2',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
         {id : 2, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title2', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '451'},
+            title : 'title2', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '451', item : 'item3',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
         {id : 3, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title3', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '200'},
+            title : 'title3', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '200', item : 'item4',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
         {id : 4, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title4', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '300'},
+            title : 'title4', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '300', item : 'item5',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
         {id : 5, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title5', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '400'}
+            title : 'title5', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '400', item : 'item6',
+            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'}
     ],
     
     value : {
         data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45
     },
+
+    information : [],
 
     reviews : storage.fetch(),
 }

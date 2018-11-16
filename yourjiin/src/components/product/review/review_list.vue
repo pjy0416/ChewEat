@@ -4,8 +4,8 @@
             <li class = "shadow" v-for="(review) in this.$store.state.reviews" :key="review.item">
                 {{review.item}}
                 <span class = "like-button">
-                    <i class="far fa-thumbs-up" @click="Count(review.count++)"></i>
                     <span class = "like-count">{{review.count}}</span>
+                    <i class="far fa-heart fa-bold fa-lg" @click="Count(review.count++)"></i>
                 </span>
             </li>
         </transition-group>
@@ -38,12 +38,12 @@ export default {
         align-items : center;
     }
     .like-button {
-        color : blue;
+        color : #FF3820;
         margin-left : auto;
     }
     .like-count { 
         color : black;
-        margin-left : 5px;
+        margin-right : 15px;
     }
 
     /* list item transition */ 

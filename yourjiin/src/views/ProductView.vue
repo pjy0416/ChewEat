@@ -1,7 +1,7 @@
 <template>
     <div class = "product-container">
         <product-header></product-header>
-        <product-main></product-main>
+        <product-main id="product-main" v-if="this.$store.state.information != [] "></product-main>
         <product-review></product-review>
     </div>
 </template>
@@ -21,4 +21,7 @@ export default {
 </script>
 
 <style scoped>
+    #product-main {
+        margin-top : 200px;
+    }
 </style>
