@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = {
-    product : '/api/text/query2',
+    product : '/api/test/query2',
 };
 
 function fetchProduct(){
