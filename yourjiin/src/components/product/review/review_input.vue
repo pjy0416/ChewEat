@@ -59,19 +59,25 @@ export default {
         background : white;
         height: 52px;
         line-height: 50px;
-        border-radius: 5px;
+        border-radius: 15px;
+    }
+    .inputBox:hover {
+        background-color : #EEEEEF;
     }
     .inputBox input{
-        width : 80%;
+        width : 90%;
         text-align : center;
         border-style: none;
         font-size : 1rem;
     }
+    .inputBox input:hover {
+        background-color: #EEEEEF;
+    }
     .addContainer {
         float : right;
-        background : white;
         width: 3rem;
         border-radius: 0 5px 0 5px;
+        margin-right : 10px;
     }
     .addbtn{
         color : white;
@@ -85,8 +91,15 @@ export default {
         float : right;
         /* margin-top : 3%; */
     }
-    @media(min-width : 700px) {
-
+    @media(max-width : 760px) {
+        .inputBox input {
+            width : 80%;
+        }
+    }
+    @media(max-width : 500px) {
+        .inputBox input {
+            width : 80%;
+        }
     }
 </style>
 

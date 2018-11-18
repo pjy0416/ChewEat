@@ -2,6 +2,8 @@ import {storage} from './storage.js';
 
 export default{
     selected : [],
+
+    //Front에서만 이용할 것 DB x 
     snack : [
         {id : 0, text : 'ALL', value : 'ALL'},
         {id : 1, text : 'Sweet', value : 'item1'},
@@ -37,6 +39,7 @@ export default{
         {id : 4, text : 'Soup', value : 'item4'}
     ],
 
+    //navigation bar에 들어가는 내용들
     categories : [
         //'Snack', 'Noodle', 'Drink', 'Dairy', 'Instant','Community'
         {id : 'snack' , index : 1, value : 'Snack', url : 'http://drive.google.com/uc?export=view&id=1qHj2-a0JhvAgeuz537U5TDTRHhvZdqPd'},
@@ -47,6 +50,7 @@ export default{
     ],
 
     products : [
+        //item = title과 같지만 item 으로 집어넣을 것
         {id : 0, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
             title : 'title0', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '123', item : 'item1',
             nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
@@ -67,11 +71,20 @@ export default{
             nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'}
     ],
     
+    //chart data 6개 
     value : {
-        data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45
+        data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45, data6: 45
     },
 
     information : [],
 
     reviews : storage.fetch(),
+
+    // 리뷰에 들어갈 기본 요소
+    // var obj = {
+    //     completed : false,
+    //     item : getreview,
+            //item -- 리뷰 내용
+    //     count : 0,
+    // };
 }

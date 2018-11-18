@@ -6,7 +6,7 @@
                 <Commodity></Commodity>
             </div>
             <transition name = "component-fade" mode = "out-in">  
-                <Product></Product>
+                <product-section></product-section>
             </transition>
         </div>
     </transition>
@@ -15,13 +15,13 @@
 <script>
 
 import Commodity from '../components/common/Commodity.vue';
-import Product from '../components/commodity/productsection.vue';
+import ProductSection from '../components/commodity/productsection.vue';
 import Logo from '../components/common/logo.vue';
 
 export default {
     components : {
         Commodity,
-        Product,
+        ProductSection,
         Logo
     },  
 }

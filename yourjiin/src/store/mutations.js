@@ -25,5 +25,12 @@ export default {
         localStorage.setItem(getreview, JSON.stringify(obj));
         state.reviews.push(obj);
     },
-    
+    ClickOneItem(state, payload) {
+        state.reviews[payload.index].completed = !state.reviews[payload.index].completed;
+        state.reviews[payload.index].count += 1;
+    },
+    ReturnOneItem(state, payload) {
+        state.reviews[payload.index].completed = !state.reviews[payload.index].completed;
+        state.reviews[payload.index].count -= 1;   
+    }
 }

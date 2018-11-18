@@ -89,6 +89,7 @@ export default {
     }
     .item-image-section {
         width : 30%;
+        background-color : white;
     }
     .item-img {
         vertical-align : bottom;
