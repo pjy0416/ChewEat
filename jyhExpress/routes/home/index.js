@@ -13,4 +13,5 @@ router.get('/home', home);
 router.use('/commodity', commodity);
 router.use('/community', community);
 
+
 module.exports = router;

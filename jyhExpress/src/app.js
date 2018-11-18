@@ -1,4 +1,3 @@
-
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
@@ -22,8 +21,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
 app.use(express.static('dist'));
-app.use('/home', require('../routes/home'));
-app.use('/api', require('../routes/api'));
+//app.use('/home', require('../routes/home'));      문제없이 페이지 되면 지우기
+app.use('/product', require('../routes/product'));
 app.use('/', require('../routes'));
 
 // catch 404 and forward to error handler
