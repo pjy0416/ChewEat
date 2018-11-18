@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="myChart"></canvas>
+  <canvas ref="myChart" ></canvas>
 </template>
 
 <script>
@@ -18,27 +18,46 @@ export default {
 
         new this.ChartJS(this.$refs.myChart, {
             // The type of chart we want to create
-            type: 'polarArea',
+            type: 'pie',
 
             // The data for our dataset
             data: {
-                labels: ["figure1", "figure2", "figure3", "figure4", "figure5"],
+                
                 datasets: [{
                     label: "Nutrient",
                     backgroundColor: [
-                        '#f1c40f', '#e67e22', '#16a085', '#2980b9','#8e44ad'
+                        'rgba(255, 56, 32, 1)', 'rgba(255, 56, 32, 0.7)', 'rgba(255, 56, 32, 0.4)', 'rgba(32, 24, 21, 0.2)',  
+                        'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'
+                        
                     ],
-                    data: [this.data.data1, this.data.data2, this.data.data3, this.data.data4, this.data.data5],
-                }]
+                    data: [this.data.data1, this.data.data2, this.data.data3, this.data.data4, this.data.data5, this.data.data6],
+                }],
+                labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
             },
 
             // Configuration options go here
             options: {
+                legend : {
+                    position : 'bottom',
+                    labels : {
+                        fontSize : 10,
+                        padding : 15,
+                    },
+                    fullWidth : true,
+                },
                 animation : {
                     animateRotate : true,
                     animateScale : true
                 },
-                responsive : true
+                tooltips : {
+                    titleFontSize : 30,
+                    bodyFontSize : 14,
+                    caretPadding : 10,
+                    caretSize : 13,
+                    xPadding : 50,
+                    yPadding : 10,
+                    bodySpacing : 30
+                }
             }
         });
     }

@@ -6,6 +6,12 @@ export default {
     remove_data(state){
         state.selected = [];
     },
+
+    ////////////////////////////////
+
+    Send_data(state, payload ){
+        state.information = payload;
+    },
     
     // SET_JOBS(state, data){
     //     state.products = data;
