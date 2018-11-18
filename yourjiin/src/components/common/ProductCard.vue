@@ -1,10 +1,10 @@
 <template>
     <div class = "product-container">
         <div class = "product-item" >
-            <div class = "product-align" v-for="item in this.$store.state.product_fetch" :key="item.id">
+            <div class = "product-align" v-for="item in this.$store.state.products" :key="item.id">
                 <div class = "product">
                     <div class = "product-left-section">
-                        <img class = "product-img" :src="item.src" fluid alt="image"/>
+                        <img class = "product-img" :src="item.url" fluid alt="image"/>
                     </div>
                     <div class = "product-right-section">
                         <span class = "product-text">

@@ -11,9 +11,9 @@
             </div>
         </div>
         <ul class = "category-section">
-            <li class = "logo"><b-img src= 'http://drive.google.com/uc?export=view&id=1Me_8LWw7gHN_8dgTSqWeFZ1_9lYSIYtV' fluid/></li>
+            <li class = "logo"><b-img src= 'https://i.postimg.cc/tTPQh83J/Chew-Eat-logo-spoon.png' fluid/></li>
             
-            <router-link :to="{name : home , path : '/home'}" class = "routes"><li class = "category"><b-img src = 'http://drive.google.com/uc?export=view&id=1Ne9-4im_z9krgVYwrXS1cMVqyjzDuuvU' fluid alt="Responsive image" /></li></router-link>
+            <router-link :to="{name : home , path : '/home'}" class = "routes"><li class = "category"><b-img src = 'https://i.postimg.cc/zGWCYjFW/Chew-Eat-home-icon.png' fluid alt="Responsive image" /></li></router-link>
 
             <li class = "category" v-for="category in this.$store.state.categories" :key="category.id" @click="PageRefresh()">
                 <router-link :to ="{ name: 'commodity', params: { id : category.id }}" class = "routes">
