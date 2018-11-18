@@ -3,28 +3,28 @@
         <div class = "item-main">
             <div class = "item-align">
                 <div class = "item-image-section">
-                    <b-img class = "item-img" :src="this.information.src" fluid />
+                    <b-img class = "item-img" :src="this.information.src" fluid alt="image"/>
                 </div>
                 <div class = "item-text-section">
                     <div class = "item-text-header">
-                        {{information.title}}
+                        {{information.productName}}
                     </div>
                     <div class = "item-text-main">
                         <div class = "item-text-main-left">
                             <div class = "left-main-nutrient">
                                 <i class="fas fa-apple-alt fa-lg" ></i>Nutrient Section
-                                <p>{{information.nutrient}}</p>
+                                <p>{{information.productMatrials}}</p>
                             </div>
                             <div class = "left-main-allerginic">
                                 <i class="fas fa-exclamation-circle fa-bold fa-lg" ></i>Allerginic Section
-                                <p>{{information.allerginic}}</p>
+                                <p>{{information.allergenic}}</p>
                             </div>
                         </div>
                         <div class = "item-text-main-right">
                             <div class = "right-main-information">
                                 <span class = "information-like">
                                     <p @click="Count(information.like ++)"><i class="far fa-heart fa-bold fa-lg" ></i>LIKE &nbsp;
-                                        {{information.like}}</p>
+                                        {{information.likeCount}}</p>
                                 </span>
                                 <span class = "information-review">
                                     <p style="margin-left : 2px;">
@@ -35,7 +35,7 @@
                             </div>
                             <div class = "right-main-comment">
                                 <i class="far fa-comment-dots fa-bold fa-lg"></i>Comment
-                                <p>{{information.comment}}</p>
+                                <p>{{information.createdTime}}</p>
                             </div>
                         </div>
                     </div>  

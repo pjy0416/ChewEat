@@ -32,5 +32,11 @@ export default {
     ReturnOneItem(state, payload) {
         state.reviews[payload.index].completed = !state.reviews[payload.index].completed;
         state.reviews[payload.index].count -= 1;   
+    },
+
+
+    ///////////////////////////////////////////
+    SET_PRODUCT(state, data){
+        state.product_fetch = data;
     }
 }

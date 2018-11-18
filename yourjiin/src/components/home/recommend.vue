@@ -1,16 +1,16 @@
 <template>
     <div class = "recommend-section">
-        <b-carousel id = "carouse2" :interval="2000" v-model="slide2" 
+        <b-carousel id = "carouse2" :interval="1500" v-model="slide2" 
             @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
             <b-carousel-slide 
-                img-src = 'http://drive.google.com/uc?export=view&id=1Xic8t-qAtopJ-dM8yND-LlCKZF0U5RpS'>
+                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
             </b-carousel-slide>
             <b-carousel-slide
-                img-src = 'http://drive.google.com/uc?export=view&id=1Xic8t-qAtopJ-dM8yND-LlCKZF0U5RpS'>
+                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
             </b-carousel-slide>
             <b-carousel-slide 
-                img-src = 'http://drive.google.com/uc?export=view&id=1Xic8t-qAtopJ-dM8yND-LlCKZF0U5RpS'>
+                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
             </b-carousel-slide>
         </b-carousel>
     </div>

@@ -1,23 +1,23 @@
 <template>
     <div class = "product-container">
         <div class = "product-item" >
-            <div class = "product-align" v-for="item in this.$store.state.products" :key="item.id">
+            <div class = "product-align" v-for="item in this.$store.state.product_fetch" :key="item.id">
                 <div class = "product">
                     <div class = "product-left-section">
-                        <img class = "product-img" :src="item.src" fluid />
+                        <img class = "product-img" :src="item.src" fluid alt="image"/>
                     </div>
                     <div class = "product-right-section">
                         <span class = "product-text">
                             <div class = "text-header">
                                 <router-link :to="{ name: 'item', params: { item : item.item }}">
-                                    <p @click="send_data(item)">{{item.title}}</p>
+                                    <p @click="send_data(item)">{{item.productName}}</p>
                                 </router-link>  
                             </div>
                             <div class = "text-main">
-                                <p> <i class="far fa-heart fa-bold fa-lg"></i> LIKE &nbsp; {{item.like}}</p>
-                                <p> <i class="far fa-user fa-bold fa-lg"></i> REVIEW &nbsp; {{item.like}}</p>
+                                <p> <i class="far fa-heart fa-bold fa-lg"></i> LIKE &nbsp; {{item.likeCount}}</p>
+                                <p> <i class="far fa-user fa-bold fa-lg"></i> REVIEW &nbsp; {{item.review}}</p>
                                 <p> DESCRIPT</p>
-                                <p>{{item.dec}}</p>
+                                <p>{{item.productTaste}}</p>
                             </div>
                         </span>
                     </div>
@@ -35,6 +35,12 @@ export default {
         ...mapMutations({
             send_data : 'Send_data'
         }),
+        fetchProduct(){
+            this.$store.dispatch('FETCH_PRODUCT');
+        }
+    },
+    created(){
+        this.fetchProduct();
     }
 }
 </script>

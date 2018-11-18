@@ -70,6 +70,7 @@ export default{
             title : 'title5', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '400', item : 'item6',
             nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'}
     ],
+    product_fetch : [],
     
     //chart data 6개 
     value : {
