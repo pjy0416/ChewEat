@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = {
-    product : '/api/product/information',
+    product : '/product/information',
 };
 
 function fetchProduct(){
