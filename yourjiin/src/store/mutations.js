@@ -35,8 +35,8 @@ export default {
     },
 
 
-    ///////////////////////////////////////////
+    ////////////////// Axios /////////////////////////
     SET_PRODUCT(state, data){
-        state.product_fetch = data;
+        state.products = data;
     }
 }

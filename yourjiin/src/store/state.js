@@ -42,35 +42,14 @@ export default{
     //navigation bar에 들어가는 내용들
     categories : [
         //'Snack', 'Noodle', 'Drink', 'Dairy', 'Instant','Community'
-        {id : 'snack' , index : 1, value : 'Snack', url : 'http://drive.google.com/uc?export=view&id=1qHj2-a0JhvAgeuz537U5TDTRHhvZdqPd'},
-        {id : 'noodle' , index : 2, value : 'Noodle', url : 'http://drive.google.com/uc?export=view&id=11Hwpn1maS4RnaqupM3CHs1qBCnWScjQw' },
-        {id : 'drink' , index : 3, value : 'Drink', url : 'http://drive.google.com/uc?export=view&id=1LU-BKYcDUge246A05hKDwXWpNuexeEtC'},
-        {id : 'dairy' , index : 4, value : 'Dairy ', url : 'http://drive.google.com/uc?export=view&id=1pUxben8VZKfGWYfpC-8x96Y8ELQBlFZ4' },
-        {id : 'instant' , index : 5, value : 'Instant', url : 'http://drive.google.com/uc?export=view&id=1KNGq-aD5etDdl4OgJhST0nz1DIWVrmjM' }                
+        {id : 'snack' , index : 1, value : 'Snack', url : 'https://i.postimg.cc/gcCHJjk3/Chew-Eat-snack-icon.png'},
+        {id : 'noodle' , index : 2, value : 'Noodle', url : 'https://i.postimg.cc/mkHD1dDy/Chew-Eat-noodle-icon.png' },
+        {id : 'drink' , index : 3, value : 'Drink', url : 'https://i.postimg.cc/ZqtLWg5V/Chew-Eat-drink-icon.png'},
+        {id : 'dairy' , index : 4, value : 'Dairy ', url : ' https://i.postimg.cc/Z59fBpFK/Chew-Eat-dairy-icon.png' },
+        {id : 'instant' , index : 5, value : 'Instant', url : 'https://i.postimg.cc/pX58KZ77/Chew-Eat-instant-icon.png' }                
     ],
 
-    products : [
-        //item = title과 같지만 item 으로 집어넣을 것
-        {id : 0, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title0', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '123', item : 'item1',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
-        {id : 1, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title1', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '500', item : 'item2',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
-        {id : 2, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title2', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '451', item : 'item3',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
-        {id : 3, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title3', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '200', item : 'item4',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
-        {id : 4, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title4', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '300', item : 'item5',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'},
-        {id : 5, src : 'http://drive.google.com/uc?export=view&id=1hYOu8XhP6qgzwpA8uOD-yLm3k6lAlwL6', 
-            title : 'title5', dec : 'Lorem ipsum dolor sit amet consectetur adipisicing elit', like : '400', item : 'item6',
-            nutrient : 'Nutrient section' , allerginic : 'allerginic section', review : 10, comment : 'Comment Section'}
-    ],
-    product_fetch : [],
+    products : [],
     
     //chart data 6개 
     value : {

@@ -4,13 +4,13 @@
             @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
             <b-carousel-slide 
-                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
+                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
             </b-carousel-slide>
             <b-carousel-slide
-                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
+                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
             </b-carousel-slide>
             <b-carousel-slide 
-                img-src = 'https://i.postimg.cc/k5RYRKCv/Kakao-Talk-20181118-231404910.jpg'>
+                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
             </b-carousel-slide>
         </b-carousel>
     </div>

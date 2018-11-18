@@ -1,6 +1,6 @@
 <template>
     <div class = "logo-container">
-        <b-img src='http://drive.google.com/uc?export=view&id=1PmtzaDFsYZHZVh-zVACw9txbyj42k7jL' fluid class = "logo" />
+        <b-img src='https://i.postimg.cc/MGLq0ygP/Chew-Eat-logo-red.png' fluid class = "logo" />
     </div>
 </template>
 
