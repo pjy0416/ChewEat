@@ -3,7 +3,7 @@
         <div class = "item-main">
             <div class = "item-align">
                 <div class = "item-image-section">
-                    <b-img class = "item-img" :src="this.information.src" fluid alt="image"/>
+                    <b-img class = "item-img" :src="this.information.url" fluid alt="image"/>
                 </div>
                 <div class = "item-text-section">
                     <div class = "item-text-header">
