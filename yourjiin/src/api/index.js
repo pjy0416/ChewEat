@@ -3,15 +3,18 @@ import axios from 'axios';
 const root = '/product/information';
 
 const api = {
-    chart : ''
+    chart : 'product/information/detail'
 };
+// const snack = {
+//     SnackAll : `${root}/snack`,
+//     Snackitem1 : `${root}/snack/item1`,
+//     Snackitem2 : `${root}/snack/item2`,
+//     Snackitem3 : `${root}/snack/item3`,
+//     Snackitem4 : `${root}/snack/item4`,
+// };
 const snack = {
-    SnackAll : `${root}/snack`,
-    Snackitem1 : `${root}/snack/item1`,
-    Snackitem2 : `${root}/snack/item2`,
-    Snackitem3 : `${root}/snack/item3`,
-    Snackitem4 : `${root}/snack/item4`,
-};
+    
+}
 const noodle = {
     NoodleAll : `${root}/noodle`,
     Noodleitem1 : `${root}/noodle/item1`,
@@ -40,6 +43,9 @@ const instant = {
     Instantitem3 : `${root}/instant/item3`,
     Instantitem4 : `${root}/instant/item4`,
 };
+function fetchRoot(){
+    return axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`);
+}
 
 function fetchChart(){
     return axios.get(api.chart);
@@ -130,4 +136,5 @@ export {
     fetchNoodle, fetchNoodleItem1, fetchNoodleItem2, fetchNoodleItem3, fetchNoodleItem4,
     fetchDairy, fetchDairyItem1, fetchDairyItem2, fetchDairyItem3, fetchDairyItem4,
     fetchInstant, fetchInstantItem1, fetchInstantItem2, fetchInstantItem3, fetchInstantItem4,
+    fetchRoot
 }

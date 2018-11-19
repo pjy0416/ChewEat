@@ -1,4 +1,4 @@
-import {fetchChart, 
+import {fetchChart, fetchRoot,
     fetchSnack, fetchSnackItem1, fetchSnackItem2, fetchSnackItem3, fetchSnackItem4,
     fetchDrink, fetchDrinkItem1, fetchDrinkItem2, fetchDrinkItem3, fetchDrinkItem4,
     fetchNoodle, fetchNoodleItem1, fetchNoodleItem2, fetchNoodleItem3, fetchNoodleItem4,
@@ -11,6 +11,14 @@ export default{
         return fetchChart()
             .then(response => {
                 commit('SET_CHART',response.data);
+                return response;
+            })
+            .catch()
+    },
+    FETCH_ROOT({commit}){
+        return fetchRoot()
+            .then(response => {
+                commit('SET_ROOT', response.data);
                 return response;
             })
             .catch()

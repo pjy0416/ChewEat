@@ -9,7 +9,7 @@
                     <div class = "product-right-section">
                         <span class = "product-text">
                             <div class = "text-header">
-                                <router-link :to="{ name: 'item', params: { item : item.item }}">
+                                <router-link :to="{ name: 'item', params: { item : item.productName }}">
                                     <p @click="send_data(item)">{{item.productName}}</p>
                                 </router-link>  
                             </div>
@@ -31,6 +31,11 @@
 import { mapMutations } from 'vuex';
 
 export default {
+    data(){
+        return {
+            param : 'detail',
+      }
+    },
     methods : {
         ...mapMutations({
             send_data : 'Send_data'
@@ -91,10 +96,13 @@ export default {
             else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item4')
                 this.$store.dispatch('FETCH_INSTANTITEM4');
         },
-        fetch
+        fetchRoot(){
+            this.$store.dispatch('FETCH_ROOT');
+        }
     },
     created(){
-        this.fetchProduct();
+        // this.fetchProduct();
+        this.fetchRoot();
     }
 }
 </script>

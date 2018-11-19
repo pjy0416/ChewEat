@@ -40,7 +40,9 @@ export default {
     SET_CHART(state, data){
         state.charts = data;
     },
-
+    SET_ROOT(state, data) {
+        state.products = data;
+    },
     SNACK_ALL(state, data){
         state.products = data;
     },
