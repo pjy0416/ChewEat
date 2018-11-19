@@ -49,9 +49,10 @@ export default{
     ],
 
     products : [
-        {id : 1, url : "https://i.postimg.cc/mrgQqF8W/Chew-Eat-favor1.jpg", productName : "item", likeCount : "10", 
-        review : "review", productTaste : "descript", productMatrials : "material", allergenic : "allergenic", createdTime : "create time"}    
+        
     ],
+    // {id : 1, url : "https://i.postimg.cc/mrgQqF8W/Chew-Eat-favor1.jpg", productName : "item", likeCount : "10", 
+    //     review : "review", productTaste : "descript", productMatrials : "material", allergenic : "allergenic", createdTime : "create time"}    
     
     //chart data 6개 
     charts : [],
