@@ -93,24 +93,9 @@ export default {
             else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item4')
                 this.$store.dispatch('FETCH_INSTANTITEM4');
         },
-        fetch_Root({commit}) {
-            axios.get(`product/information/${this.$route.params.id}/${this.$store.state.selected}`)
-                .then( response => {
-                    commit('SET_ROOT', response.data);
-                    return response;
-                })
-                .catch()
-        }
+
     },
-    //  axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`);
-    // FETCH_ROOT({commit}){
-    //     axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`)
-    //         .then(response => {
-    //             commit('SET_ROOT', response.data);
-    //             return response;
-    //         })
-    //         .catch()
-    // },
+
     data() {
         return {
             param : [],
@@ -119,8 +104,16 @@ export default {
     },
     created(){
         // this.fetchProduct();
-        this.fetch_Root();
-        
+        this.param = this.$route.params.id;
+        this.item = this.$store.state.selected;
+
+    },
+    mounted() {
+        const root = 'product/information';
+        axios.get(`${root}/${this.param}/${this.item}`)
+            .then(response =>
+                (this.$store.state.products = response.data))
+            .catch()
     }
 }
 </script>
