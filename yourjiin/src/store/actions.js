@@ -1,11 +1,11 @@
-import {fetchChart, fetchRoot,
+import {fetchChart, 
     fetchSnack, fetchSnackItem1, fetchSnackItem2, fetchSnackItem3, fetchSnackItem4,
     fetchDrink, fetchDrinkItem1, fetchDrinkItem2, fetchDrinkItem3, fetchDrinkItem4,
     fetchNoodle, fetchNoodleItem1, fetchNoodleItem2, fetchNoodleItem3, fetchNoodleItem4,
     fetchDairy, fetchDairyItem1, fetchDairyItem2, fetchDairyItem3, fetchDairyItem4,
     fetchInstant, fetchInstantItem1, fetchInstantItem2, fetchInstantItem3, fetchInstantItem4,
 } from '../api/index.js';
-
+import axios from 'axios';
 export default{
     FETCH_CHART({commit}) {
         return fetchChart()
@@ -16,7 +16,7 @@ export default{
             .catch()
     },
     FETCH_ROOT({commit}){
-        return fetchRoot()
+        axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`)
             .then(response => {
                 commit('SET_ROOT', response.data);
                 return response;

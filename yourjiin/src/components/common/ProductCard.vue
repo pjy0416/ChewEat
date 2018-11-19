@@ -106,12 +106,8 @@ export default {
     },
     created(){
         // this.fetchProduct();
-        // this.fetchRoot();
-        axios.get('/product/information' + '/' +this.selectedtype +'/' +this.searchvalue)
-                .then(response => this.contacts = response.data)
-                .catch(function (error) {
-                    console.log(error);
-                });
+        this.fetchRoot();
+        
     }
 }
 </script>
