@@ -4,21 +4,15 @@
     </div>
 </template>
 
+
 <script>
+// param id가 있고, selected 가 있는 상태
 import ProductCard from '../../common/ProductCard.vue';
 
 export default {
     components : {
         ProductCard
     },
-    methods : {
-        fetchItem1(){
-            this.$store.dispatch('FETCH_ItEM1');
-        }
-    },
-    created(){
-        this.fetchItem1();
-    }
 }
 </script>
 

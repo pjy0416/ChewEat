@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="myChart" ></canvas>
+  <canvas ref="myChart"></canvas>
 </template>
 
 <script>
@@ -12,7 +12,18 @@ export default {
             data : []
         }
     },
-    props : ['chartdata'],
+    methods : {
+        fetchChart(){
+            this.$store.dispatch('FETCH_CHART');
+        }
+    },
+    created(){
+        this.fetchChart();
+        
+    },
+    beforMount(){
+        this.data = this.$store.state.charts;
+    },
     mounted() {
         this.data = this.chartdata;
 
@@ -30,7 +41,8 @@ export default {
                         'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'
                         
                     ],
-                    data: [this.data.data1, this.data.data2, this.data.data3, this.data.data4, this.data.data5, this.data.data6],
+                    data: [this.data.natrium, this.data.carbohydrate, this.data.sugars, this.data.fat, 
+                            this.data.cholesterol, this.data.protein],
                 }],
                 labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
             },

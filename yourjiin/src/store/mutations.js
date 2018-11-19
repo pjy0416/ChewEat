@@ -36,7 +36,89 @@ export default {
 
 
     ////////////////// Axios /////////////////////////
-    SET_PRODUCT(state, data){
+    
+    SET_CHART(state, data){
+        state.charts = data;
+    },
+
+    SNACK_ALL(state, data){
         state.products = data;
-    }
+    },
+    SNACK_ITEM1(state, data){
+        state.products = data;
+    },
+    SNACK_ITEM2(state, data){
+        state.products = data;
+    },
+    SNACK_ITEM3(state, data){
+        state.products = data;
+    },
+    SNACK_ITEM4(state, data){
+        state.products = data;
+    },
+    //////////////////////////////////////////////////////////
+    DRINK_ALL(state, data){
+        state.products = data;
+    },
+    DRINK_ITEM1(state, data){
+        state.products = data;
+    },
+    DRINK_ITEM2(state, data){
+        state.products = data;
+    },
+    DRINK_ITEM3(state, data){
+        state.products = data;
+    },
+    DRINK_ITEM4(state, data){
+        state.products = data;
+    },
+    /////////////////////////////////////////////////////////////
+    NOODLE_ALL(state, data){
+        state.products = data;
+    },
+    NOODLE_ITEM1(state, data){
+        state.products = data;
+    },
+    NOODLE_ITEM2(state, data){
+        state.products = data;
+    },
+    NOODLE_ITEM3(state, data){
+        state.products = data;
+    },
+    NOODLE_ITEM4(state, data){
+        state.products = data;
+    },
+    ///////////////////////////////////////////////////////////////
+    DAIRY_ALL(state, data){
+        state.products = data;
+    },
+    DAIRY_ITEM1(state, data){
+        state.products = data;
+    },
+    DAIRY_ITEM2(state, data){
+        state.products = data;
+    },
+    DAIRY_ITEM3(state, data){
+        state.products = data;
+    },
+    DAIRY_ITEM4(state, data){
+        state.products = data;
+    },
+    ////////////////////////////////////////////////////////////////
+    INSTANT_ALL(state, data){
+        state.products = data;
+    },
+    INSTANT_ITEM1(state, data){
+        state.products = data;
+    },
+    INSTANT_ITEM2(state, data){
+        state.products = data;
+    },
+    INSTANT_ITEM3(state, data){
+        state.products = data;
+    },
+    INSTANT_ITEM4(state, data){
+        state.products = data;
+    },
+    /////////////////////////////////////////////////////////////////
 }

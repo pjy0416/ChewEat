@@ -48,14 +48,14 @@
                 Nutrient Percent
             </div>
             <div class = "chart-main">
-                <chart-vue class = "item-chart" v-bind:chartdata="value"></chart-vue>
+                <chart-module class = "item-chart"></chart-module>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-import ChartVue from '../common/chart.vue'; 
+<script> 
+import ChartModule from '../common/Chartmodule.vue';
 
 export default {
    data(){
@@ -68,9 +68,10 @@ export default {
    },
    created(){
        this.information = this.$store.state.information;
+
    },
    components : {
-       ChartVue
+       ChartModule
    }
 }
 </script>

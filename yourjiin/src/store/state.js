@@ -3,7 +3,6 @@ import {storage} from './storage.js';
 export default{
     selected : [],
 
-    //Front에서만 이용할 것 DB x 
     snack : [
         {id : 0, text : 'ALL', value : 'ALL'},
         {id : 1, text : 'Sweet', value : 'item1'},
@@ -49,12 +48,13 @@ export default{
         {id : 'instant' , index : 5, value : 'Instant', url : 'https://i.postimg.cc/pX58KZ77/Chew-Eat-instant-icon.png' }                
     ],
 
-    products : [],
+    products : [
+        {id : 1, url : "https://i.postimg.cc/mrgQqF8W/Chew-Eat-favor1.jpg", productName : "item", likeCount : "10", 
+        review : "review", productTaste : "descript", productMatrials : "material", allergenic : "allergenic", createdTime : "create time"}
+    ],
     
     //chart data 6개 
-    value : {
-        data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45, data6: 45
-    },
+    charts : [],
 
     information : [],
 

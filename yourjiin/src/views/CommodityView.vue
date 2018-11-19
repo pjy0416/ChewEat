@@ -16,6 +16,7 @@
 
 import Commodity from '../components/common/Commodity.vue';
 import ProductSection from '../components/commodity/productsection.vue';
+
 import Logo from '../components/common/logo.vue';
 
 export default {
