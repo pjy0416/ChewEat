@@ -20,7 +20,7 @@ export default{
     drink : [
         {id : 0, text : 'ALL', value : 'ALL'},
         {id : 1, text : 'Fruits', value : 'item1'},
-        {id : 2, text : 'Spackling', value : 'item2'},
+        {id : 2, text : 'Sparkling', value : 'item2'},
         {id : 3, text : 'ion', value : 'item3'},
         {id : 4, text : 'Traditional', value : 'item4'}
     ],
