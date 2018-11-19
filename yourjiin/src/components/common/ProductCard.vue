@@ -37,90 +37,25 @@ export default {
         ...mapMutations({
             send_data : 'Send_data'
         }),
-        fetchProduct(){
-            if(this.$route.params.id == 'snack' && this.$store.state.selected == 'ALL')
-                this.$store.dispatch('FETCH_SNACKALL');
-            else if(this.$route.params.id == 'snack' && this.$store.state.selected == 'item1')
-                this.$store.dispatch('FETCH_SNACKITEM1');
-            else if(this.$route.params.id == 'snack' && this.$store.state.selected == 'item2')
-                this.$store.dispatch('FETCH_SNACKITEM2');
-            else if(this.$route.params.id == 'snack' && this.$store.state.selected == 'item3')
-                this.$store.dispatch('FETCH_SNACKITEM3');
-            else if(this.$route.params.id == 'snack' && this.$store.state.selected == 'item4')
-                this.$store.dispatch('FETCH_SNACKITEM4');
-        ////////////////////////////////////////////////////////////////////////////////////////////////    
-            else if(this.$route.params.id == 'noodle' && this.$store.state.selected == 'ALL')
-                this.$store.dispatch('FETCH_NOODLEALL');
-            else if(this.$route.params.id == 'noodle' && this.$store.state.selected == 'item1')
-                this.$store.dispatch('FETCH_NOODLEITEM1');
-            else if(this.$route.params.id == 'noodle' && this.$store.state.selected == 'item2')
-                this.$store.dispatch('FETCH_NOODLEITEM2');
-            else if(this.$route.params.id == 'noodle' && this.$store.state.selected == 'item3')
-                this.$store.dispatch('FETCH_NOODLEITEM3');
-            else if(this.$route.params.id == 'noodle' && this.$store.state.selected == 'item4')
-                this.$store.dispatch('FETCH_NOODLEITEM4');
-        ////////////////////////////////////////////////////////////////////////////////////////////////    
-            else if(this.$route.params.id == 'drink' && this.$store.state.selected == 'ALL')
-                this.$store.dispatch('FETCH_DRINKALL');
-            else if(this.$route.params.id == 'drink' && this.$store.state.selected == 'item1')
-                this.$store.dispatch('FETCH_DRINKITEM1');
-            else if(this.$route.params.id == 'drink' && this.$store.state.selected == 'item2')
-                this.$store.dispatch('FETCH_DRINKITEM2');
-            else if(this.$route.params.id == 'drink' && this.$store.state.selected == 'item3')
-                this.$store.dispatch('FETCH_DRINKITEM3');
-            else if(this.$route.params.id == 'drink' && this.$store.state.selected == 'item4')
-                this.$store.dispatch('FETCH_DRINKITEM4');
-        ////////////////////////////////////////////////////////////////////////////////////////////////
-            else if(this.$route.params.id == 'dairy' && this.$store.state.selected == 'ALL')
-                this.$store.dispatch('FETCH_DAIRYALL');
-            else if(this.$route.params.id == 'dairy' && this.$store.state.selected == 'item1')
-                this.$store.dispatch('FETCH_DAIRYITEM1');
-            else if(this.$route.params.id == 'dairy' && this.$store.state.selected == 'item2')
-                this.$store.dispatch('FETCH_DAIRYITEM2');
-            else if(this.$route.params.id == 'dairy' && this.$store.state.selected == 'item3')
-                this.$store.dispatch('FETCH_DAIRYITEM3');
-            else if(this.$route.params.id == 'dairy' && this.$store.state.selected == 'item4')
-                this.$store.dispatch('FETCH_DAIRYITEM4');
-        ////////////////////////////////////////////////////////////////////////////////////////////////
-            else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'ALL')
-                this.$store.dispatch('FETCH_INSTANTALL');
-            else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item1')
-                this.$store.dispatch('FETCH_INSTANTITEM1');
-            else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item2')
-                this.$store.dispatch('FETCH_INSTANTITEM2');
-            else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item3')
-                this.$store.dispatch('FETCH_INSTANTITEM3');
-            else if(this.$route.params.id == 'instant' && this.$store.state.selected == 'item4')
-                this.$store.dispatch('FETCH_INSTANTITEM4');
-        },
-        fetch_Root({commit}) {
-            axios.get(`product/information/${this.$route.params.id}/${this.$store.state.selected}`)
-                .then( response => {
-                    commit('SET_ROOT', response.data);
-                    return response;
-                })
-                .catch()
-        }
     },
-    //  axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`);
-    // FETCH_ROOT({commit}){
-    //     axios.get(`${root}/${this.$route.params.id}/${this.$store.state.selected}`)
-    //         .then(response => {
-    //             commit('SET_ROOT', response.data);
-    //             return response;
-    //         })
-    //         .catch()
-    // },
+
     data() {
         return {
             param : [],
             item : [],
       }
     },
+
     created(){
-        // this.fetchProduct();
-        this.fetch_Root();
-        
+        this.param = this.$route.params.id;
+        this.item = this.$store.state.selected;
+    },
+    mounted() {
+        const root = 'product/information';
+        axios.get(`${root}/${this.param}/${this.item}`)
+            .then(response =>
+                (this.$store.state.products = response.data))
+            .catch()
     }
 }
 </script>

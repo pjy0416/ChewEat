@@ -5,44 +5,38 @@
 <script>
 //chart를 설치 -> plugin 폴더에 chartPlugin.js를 생성
 //main.js에 선언 -> mounted로 연결 -> 화면에 렌더링
+// commodity/product/information/test/1
+import axios from 'axios';
 
 export default {
     data(){
         return {
-            data : []
+            chartdata : [],
+            ProductID : []
         }
     },
-    methods : {
-        fetchChart(){
-            this.$store.dispatch('FETCH_CHART');
-        }
-    },
-    created(){
-        this.fetchChart();
-        
-    },
-    beforMount(){
-        this.data = this.$store.state.charts;
+    created() {
+        this.ProductID = this.$store.state.information.productID;
+        const chartroot = 'commodity/product/information/test';
+        axios.get(`${chartroot}/${this.ProductID}`)
+            .then( response => 
+                (this.chartdata = response.data))
+            .catch()
     },
     mounted() {
-        this.data = this.chartdata;
-
         new this.ChartJS(this.$refs.myChart, {
             // The type of chart we want to create
             type: 'pie',
-
             // The data for our dataset
             data: {
-                
                 datasets: [{
                     label: "Nutrient",
                     backgroundColor: [
                         'rgba(255, 56, 32, 1)', 'rgba(255, 56, 32, 0.7)', 'rgba(255, 56, 32, 0.4)', 'rgba(32, 24, 21, 0.2)',  
-                        'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'
-                        
+                        'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'  
                     ],
-                    data: [this.data.natrium, this.data.carbohydrate, this.data.sugars, this.data.fat, 
-                            this.data.cholesterol, this.data.protein],
+                    data: [this.chartdata.natrium, this.chartdata.carbohydrate, this.chartdata.sugars, 
+                            this.chartdata.fat, this.chartdata.cholesterol, this.chartdata.protein],
                 }],
                 labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
             },
