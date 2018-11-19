@@ -29,13 +29,10 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import axios from 'axios';
 
 export default {
-    data(){
-        return {
-            param : 'detail',
-      }
-    },
+   
     methods : {
         ...mapMutations({
             send_data : 'Send_data'
@@ -100,9 +97,21 @@ export default {
             this.$store.dispatch('FETCH_ROOT');
         }
     },
+    data() {
+        return  {
+            selectedtype : this.$route.params.id,
+            searchvalue : this.$store.state.selected,
+            contacts : [],
+      }
+    },
     created(){
         // this.fetchProduct();
-        this.fetchRoot();
+        // this.fetchRoot();
+        axios.get('/product/information' + '/' +this.selectedtype +'/' +this.searchvalue)
+                .then(response => this.contacts = response.data)
+                .catch(function (error) {
+                    console.log(error);
+                });
     }
 }
 </script>
