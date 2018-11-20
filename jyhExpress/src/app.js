@@ -22,7 +22,7 @@ app.use(cors());
 
 app.use(express.static('dist'));
 //app.use('/home', require('../routes/home'));      문제없이 페이지 되면 지우기
-app.use('/product', require('../routes/product'));
+app.use('/commodity/product/information', require('../routes/product'));    // routing 맞추기 위해...
 app.use('/', require('../routes'));
 
 // catch 404 and forward to error handler

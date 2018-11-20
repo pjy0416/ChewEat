@@ -1,5 +1,7 @@
-import path from "path";
+import {commentIncLikeQuery} from "../../database/search/query";
 
-export const community= (req, res) => {
-    res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+export const community= async (req, res, param) => {
+    let startSql = await commentIncLikeQuery(param);
+
+    res.send(startSql);
 };
