@@ -9,10 +9,10 @@
 
 export const dbConfig = {
     connectionLimit : 10,
-    host            : '192.168.0.131',
-    port            : '3000',
+    host            : 'localhost',
+    port            : '3306',
     user            : 'root',
-    password        : '123098',
+    password        : 'jhjjsb7577',
     database        : 'cheweat'
 };
 

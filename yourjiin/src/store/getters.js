@@ -1,5 +1,5 @@
 export default{
-    storedTodoItems(state) {
+    putreviews(state) {
         return state.reviews;
-    }
+    },
 }

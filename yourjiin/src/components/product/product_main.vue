@@ -37,7 +37,7 @@
                             </div>
                             <div class = "right-main-comment">
                                 <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Comment 
-                                <p class = "information-p">{{information.createdTime}}</p>
+                                <p class = "information-p">{{information.tag}}</p>
                             </div>
                         </div>
                     </div>  
@@ -69,18 +69,8 @@ export default {
             information : [],
        }
    },
-   created(){
-        this.information = this.$store.state.information;
-
-        this.ProductID = this.$store.state.information.productID;
-        const chartroot = 'commodity/product/information/detail';
-        axios.get(`${chartroot}/${this.ProductID}`)
-            .then( response => 
-                (this.chartdata = response.data))
-            .catch()
-
-        this.chartdata = this.$store.state.charts;
-
+   created() {
+       this.information = this.$store.state.information;
    },
    components : {
        ChartModule

@@ -2,6 +2,7 @@ import {storage} from './storage.js';
 
 export default{
     selected : [],
+    params : [],
 
     snack : [
         {id : 0, text : 'ALL', value : 'ALL'},
@@ -21,7 +22,7 @@ export default{
         {id : 0, text : 'ALL', value : 'ALL'},
         {id : 1, text : 'Fruits', value : 'item1'},
         {id : 2, text : 'Sparkling', value : 'item2'},
-        {id : 3, text : 'ion', value : 'item3'},
+        {id : 3, text : 'Ion', value : 'item3'},
         {id : 4, text : 'Traditional', value : 'item4'}
     ],
     dairy : [
@@ -48,10 +49,7 @@ export default{
         {id : 'instant' , index : 5, value : 'Instant', url : 'https://i.postimg.cc/pX58KZ77/Chew-Eat-instant-icon.png' }                
     ],
 
-    products : [
-        {id : 0, productName : "title", likeCount : 10, review : 10, productTaste : 'good', productMatrials : 'material',allergenic : 'allergenic'
-    , createdTime : 'comment'}
-    ],
+    products : [],
     
     charts : [10, 20, 10, 20, 19, 29],
 
@@ -59,7 +57,7 @@ export default{
 
     reviews : storage.fetch(),
     
-    reviewtest : []
+    reviewTest : []
 
     // 리뷰에 들어갈 기본 요소
     // var obj = {
