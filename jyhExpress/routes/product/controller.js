@@ -1,21 +1,16 @@
 import {productAllQuery, productTasteQuery} from "../../database/search/query";
 import {nutritionQuery, commentQuery} from "../../database/search/query";
 import {commentInsertQuery, commentUpdateQuery} from "../../database/search/query";
+import {searchAll} from "../../database/search/query";
 
-export const connectCall = async (req, res) => {
-    let startSql = await connectionTest();
-
-    res.send(startSql);
-};
-
-export const transactionCall = async (req, res) => {
-    let startSql = await transactionTest();
+export const searchAllCall = async(req, res, param) => {
+    let startSql = await searchAll(param);
 
     res.send(startSql);
 };
 
-export const testQueryCall = async (req, res) => {
-    let startSql = await queryTest();
+export const searchTasteQueryCall = async (req, res) => {
+    let startSql = await productTasteQuery();
 
     res.send(startSql);
 };
