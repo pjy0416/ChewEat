@@ -1,6 +1,6 @@
 <template>
     <div class = "recommend-section">
-        <b-carousel id = "carouse2" :interval="1500" v-model="slide2" 
+        <b-carousel id = "carouse2" :interval="3000" v-model="slide2" 
             @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
             <b-carousel-slide 

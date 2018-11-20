@@ -2,9 +2,11 @@
     <div class = "page-descriptione">
         <div class = "img-section">
             <div class = "logo-container">
-                <b-img src='https://i.postimg.cc/mrz0sK6j/Chew-Eat-logo-white.png' fluid class = "logo" />
+                <!-- <b-img src='https://i.postimg.cc/mrz0sK6j/Chew-Eat-logo-white.png' fluid class = "logo" /> -->
+                <router-link :to="{name : home , path : '/home'}">
+                <b-img class = "logo" src = 'https://i.postimg.cc/mrz0sK6j/Chew-Eat-logo-white.png' fluid alt="Responsive image" /></router-link>
             </div>
-            <b-carousel id = "carousel1" :interval="1500" v-model="slide"
+            <b-carousel id = "carousel1" :interval="3000" v-model="slide"
                 @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
                 <b-carousel-slide 
@@ -51,7 +53,7 @@
         z-index : 1;
     }
     .logo {
-        width : 30%;
+        width : 20%;
     }
 
     /* ////////////////////////////////*/

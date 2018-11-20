@@ -28,13 +28,18 @@ export default {
                 (this.$store.state.reviewtest = response.data))
             .catch()
 
-        console.log(this.reviews);
+        console.log(this.$store.state.reviewtest[0].contents);
+        console.log(this.$store.state.reviewtest[1].contents);
+        console.log(this.$store.state.reviewtest[2].contents);
+        console.log(this.$store.state.reviewtest[3].contents);
+
     },
     components : {
         ReviewList,
         ReviewInput,
         ReviewHeader
     }
+
 
 }
 </script>

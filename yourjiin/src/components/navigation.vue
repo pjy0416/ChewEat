@@ -2,8 +2,8 @@
     <div class = "sidebar" v-bind:class = "{ sidebar_active : this.active}">
         <div class = "toggle-btn" @click="toggleComplete()">
             <div v-if="this.$route.name == 'home'">
-                <i class="fas fa-bars fa-3x open-btn" v-if="this.open == false" style="color : white;"></i>
-                <i class="fas fa-times fa-3x close-btn" v-else style="color : white;"></i>
+                <i class="fas fa-bars fa-2x open-btn" v-if="this.open == false" style="color : white;"></i>
+                <i class="fas fa-times fa-2x close-btn" v-else style="color : white;"></i>
             </div>
             <div v-else>
                 <i class="fas fa-bars fa-2x open-btn" v-if="this.open == false" style="color : #FF3820;"></i>
@@ -68,15 +68,18 @@ export default {
         text-align : center;
     }
     .logo {
-        width : 40%;
+        width : 30%;
         display : block;
-        margin : 0 auto 30px auto;
+        margin : 0 auto 10px auto;
         list-style: none;
     }
     .category {
         list-style: none;
         width : 80%;
-        margin : 20px auto 20px auto;
+        margin : 10px auto 10px auto;
+    }
+    .category:nth-child(1) {
+        margin-top : 40px;
     }
     .routes{
         color : rgba(230,230,230,0.9);

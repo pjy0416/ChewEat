@@ -47,7 +47,7 @@ export default {
 
     @media (max-width : 500px) {
         .section-name p {
-            font-size : 1.5rem;
+            font-size : 1.2rem;
         }
         .section-image {
             width : 90%;

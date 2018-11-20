@@ -3,7 +3,8 @@
         <div class = "item-main">
             <div class = "item-align">
                 <div class = "item-image-section">
-                    <b-img class = "item-img" :src="this.information.url" fluid alt="image"/>
+                    <!-- <b-img class = "item-img" :src="this.information.url" fluid alt="image"/> -->
+                    <b-img class = "item-img" src="https://i.postimg.cc/mrgQqF8W/Chew-Eat-favor1.jpg" alt="image"/>
                 </div>
                 <div class = "item-text-section">
                     <div class = "item-text-header">
@@ -12,30 +13,31 @@
                     <div class = "item-text-main">
                         <div class = "item-text-main-left">
                             <div class = "left-main-nutrient">
-                                <i class="fas fa-apple-alt fa-lg" ></i>Nutrient Section
-                                <p>{{information.productMatrials}}</p>
+                                <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient Section
+                                <p class = "information-p">{{information.productMatrials}}</p>
                             </div>
                             <div class = "left-main-allerginic">
-                                <i class="fas fa-exclamation-circle fa-bold fa-lg" ></i>Allerginic Section
-                                <p>{{information.allergenic}}</p>
+                                <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic Section
+                                <p class = "information-p">{{information.allergenic}}</p>
                             </div>
                         </div>
                         <div class = "item-text-main-right">
                             <div class = "right-main-information">
                                 <span class = "information-like">
-                                    <p @click="Count(information.like ++)"><i class="far fa-heart fa-bold fa-lg" ></i>LIKE &nbsp;
-                                        {{information.likeCount}}</p>
+                                    <p @click="Count(information.like ++)" style="margin-bottom : 20px;"><i class="far fa-heart fa-bold fa-lg" style="margin-right:10px;" ></i>
+                                        Like &nbsp;
+                                        <span class = "information-item" >{{information.likeCount}}</span></p>
                                 </span>
                                 <span class = "information-review">
-                                    <p style="margin-left : 2px;">
-                                        <i class="far fa-user fa-bold fa-lg"></i>
-                                        REVIEW &nbsp;
-                                        {{information.review}}</p>
+                                    <p style="margin-left : 2px; margin-bottom : 20px;" >
+                                        <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>
+                                        Review &nbsp;
+                                        <span class = "information-item">{{information.review}}</span></p>
                                 </span>
                             </div>
                             <div class = "right-main-comment">
-                                <i class="far fa-comment-dots fa-bold fa-lg"></i>Comment
-                                <p>{{information.createdTime}}</p>
+                                <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Comment 
+                                <p class = "information-p">{{information.createdTime}}</p>
                             </div>
                         </div>
                     </div>  
@@ -137,12 +139,33 @@ export default {
     }
     .left-main-nutrient {
         margin-bottom : 15px;
+        font-weight: bold;
+    }
+    .left-main-allerginic {
+        font-weight: bold;
     }
     .item-text-main-right {
         width : 50%;
         vertical-align: top;
     }
-
+    .information-like , .information-review{ 
+        font-weight: bold;
+    }
+    
+    .information-item {
+        font-weight: 400;
+    }
+    .right-main-comment {
+        font-weight: bold;
+    }
+    .information-p {
+        margin-top : 10px; 
+        font-weight : 300;
+        padding : 0 0 0 32px;
+    }
+    .information-p:nth-last-child(1){
+        margin-left : 5px;
+    }
 /* /////////////////////////////////////// */
     .item-chart {
         width : 60%;
@@ -185,7 +208,10 @@ export default {
     }
     @media (max-width : 520px) {
         .item-image-section {
-            width : 60%;
+            width : 100%;
+        }
+        .item-img {
+            width : 100%;
         }
         .item-text-main-left , .item-text-main-right {
             font-size : 0.9rem;

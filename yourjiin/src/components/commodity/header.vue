@@ -24,19 +24,22 @@ export default {
 <style scoped>
     .commodity-name {
         width : 40%;
+        min-height : 50px;
         display : block;
         margin-left : auto;
         margin-right : auto;
         text-align: center;
         background-color : #FF3820;
         border-radius : 20px 20px 0 0;
+        padding : 10px 0 0 0;
     }
     .commodity-header {
-        font-size : 2rem;
+        font-size : 1.4rem;
         font-weight: 900;
-        letter-spacing: 5px;
+        letter-spacing: 2px;
         margin : 0 0 0 0;
         color : white;
+
     }
 
     /* /////////////////////////////// */
@@ -45,7 +48,7 @@ export default {
             width : 50%;
         }
         .commodity-header {
-            font-size : 1.7rem;
+            font-size : 1.2rem;
         }
     }
 </style>
