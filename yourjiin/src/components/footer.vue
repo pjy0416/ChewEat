@@ -26,15 +26,15 @@ export default {
         padding : 10px 10px 100px 10px;
     }
     .footer-header {
-        font-size : 1.3rem;
+        font-size : 0.8rem;
         color : grey;
     }
     .footer-main {
-        font-size : 1rem;
+        font-size : 0.8rem;
         color : black;
     }
     .footer-footer {
-        font-size : 1rem;
+        font-size : 0.8rem;
         color : black;
     }
 

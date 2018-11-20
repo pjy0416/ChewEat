@@ -1,6 +1,8 @@
 <template>
     <div class = "logo-container">
-        <b-img src='https://i.postimg.cc/MGLq0ygP/Chew-Eat-logo-red.png' fluid class = "logo" />
+        <!-- <b-img src='https://i.postimg.cc/MGLq0ygP/Chew-Eat-logo-red.png' fluid class = "logo" /> -->
+        <router-link :to="{name : home , path : '/home'}">
+        <b-img class = "logo" src = 'https://i.postimg.cc/MGLq0ygP/Chew-Eat-logo-red.png' fluid alt="Responsive image" /></router-link>
     </div>
 </template>
 

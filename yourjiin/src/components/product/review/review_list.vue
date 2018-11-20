@@ -1,8 +1,8 @@
 <template>
     <div>
         <transition-group name = "list" tag = "ul">
-            <li class = "shadow" v-for="(review,index) in this.$store.state.reviewtest" :key="review.item">
-                {{review.contents}}
+            <li class = "shadow" v-for="(review,index) in this.$store.state.reviews" :key="review.item">
+                {{review.item}}
                 <span class = "like-button">
                     <span class = "like-count" >{{review.likeCount}}</span>
                     <i class="far fa-heart fa-bold fa-lg" @click="Count({review, index})" v-if="review.completed == false"></i>
@@ -26,6 +26,9 @@ export default {
             Count  : 'ClickOneItem',
             Count2 : 'ReturnOneItem'
         }), 
+    },
+    created() {
+        console.log(this.$store.state.reviewtest);
     }
 }
 </script>
@@ -47,6 +50,7 @@ export default {
         background: white;
         border-radius: 15px;
         align-items : center;
+        margin-bottom : 15px;
     }
     .shadow:hover {
         background-color : #EEEEEF;

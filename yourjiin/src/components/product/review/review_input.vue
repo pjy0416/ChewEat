@@ -57,6 +57,7 @@ export default {
         height: 52px;
         line-height: 50px;
         border-radius: 15px;
+        margin-bottom : 50px;
     }
     .inputBox:hover {
         background-color : #EEEEEF;

@@ -41,12 +41,14 @@ export default {
         padding : 10px 10px 10px 10px;
     }
     .category-column {
-      border-style : none groove none none;
+      /* border-style : none groove none none; */
       margin : 0;
     }
-    .category-column:nth-last-child(1){
-      border : none;
+    .category-column:nth-last-child(1), .category-column:nth-last-child(2), .category-column:nth-last-child(3), 
+      .category-column:nth-last-child(4) {
+      border-left : 1px solid rgba(0, 0, 0, 0.2);
     }
+    
    
     .btn-default {
       background-color: white;
@@ -75,9 +77,7 @@ export default {
       .category-column {
         margin : 7px 0 7px 0;
       }
-      .category-column:nth-last-child(3){
-        border : none;
-      }
+      
       
     }
 </style>

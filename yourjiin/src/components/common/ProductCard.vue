@@ -16,8 +16,10 @@
                             <div class = "text-main">
                                 <p> DESCRIPT</p>
                                 <p>{{item.productTaste}}</p>
-                                <p> <i class="far fa-heart fa-bold fa-lg"></i> LIKE &nbsp; {{item.likeCount}}</p>
-                                <p> <i class="far fa-user fa-bold fa-lg"></i> REVIEW &nbsp; {{item.review}}</p>  
+                                <p> <i class="far fa-heart fa-bold fa-lg" style="margin-right : 10px;"></i> 
+                                        LIKE &nbsp; <span class = "text-item">{{item.likeCount}}</span></p>
+                                <p> <i class="far fa-user fa-bold fa-lg" style="margin-right : 10px;"></i> REVIEW &nbsp; 
+                                <span class = "text-item">{{item.review}}</span></p>  
                             </div>
                         </span>
                     </div>
@@ -70,7 +72,7 @@ export default {
     .product-align { 
         display : inline-block;
         width : 100%;
-        padding : 10px 15px 10px 15px;
+        /* padding : 10px 15px 10px 15px; */
         
     }
     /* //////////////////////////////// */
@@ -116,22 +118,36 @@ export default {
     .text-header p , .text-main p{
         margin : 0;
     }
-    .text-main p {
-        margin-bottom : 10px;
-    }
-    .text-main p:nth-last-child(1), .text-main p:nth-last-child(2), .text-main p:nth-last-child(4) {
-        font-weight : bold;
-        margin-left : 2px;
-    }
-    .text-main p:nth-last-child(2) {
-        
-        margin-top : 20px;
-    }
     .text-main {
         /* background-color: white; */
-        font-size : 1.3rem;
-        padding : 20px 10px 20px 10px;
+        font-size : 1rem;
+        padding : 20px 10px 20px 20px;
     }
+    .text-main p:nth-child(1), .text-main p:nth-child(2) {
+        margin-bottom : 2px;
+        line-height: 90%;
+    }
+    /* .text-main p:nth-last-child(1), .text-main p:nth-last-child(2), .text-main p:nth-last-child(4) {
+        font-weight : bold;
+        margin-left : 2px;
+    } */
+    .text-main p:nth-last-child(3) {
+        margin-top : 10px;
+    }
+    .text-main p:nth-last-child(2) {
+        margin-top : 30px;
+        font-weight: bold;
+    }
+    .text-main p:nth-last-child(1) {
+        margin-top : 10px;
+        margin-left : 1px;
+        font-weight: bold;
+    }
+    .text-item {
+        font-weight: 400;
+    }
+
+    
 
 
 /* /////////////////////////////////////// */

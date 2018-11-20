@@ -9,8 +9,8 @@
 
 export const dbConfig = {
     connectionLimit : 10,
-    host            : 'localhost',
-    port            : '3306',
+    host            : '192.168.0.131',
+    port            : '3000',
     user            : 'root',
     password        : '123098',
     database        : 'cheweat'
