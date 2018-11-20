@@ -69,7 +69,7 @@ export default {
    },
    created(){
         this.information = this.$store.state.information;
-        
+
         this.ProductID = this.$store.state.information.productID;
         const chartroot = 'commodity/product/information/detail';
         axios.get(`${chartroot}/${this.ProductID}`)
@@ -115,7 +115,7 @@ export default {
         background-color : white;
     }
     .item-text-header {
-        width : 40%;
+        /* width : 80%; */
         background-color : #FF3820;
         text-align : center;
         font-size : 1.6rem;

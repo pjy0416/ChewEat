@@ -1,10 +1,10 @@
 <template>
     <div>
         <transition-group name = "list" tag = "ul">
-            <li class = "shadow" v-for="(review,index) in this.$store.state.reviews" :key="review.item">
-                {{review.item}}
+            <li class = "shadow" v-for="(review,index) in this.$store.state.reviewtest" :key="review.item">
+                {{review.contents}}
                 <span class = "like-button">
-                    <span class = "like-count" >{{review.count}}</span>
+                    <span class = "like-count" >{{review.likeCount}}</span>
                     <i class="far fa-heart fa-bold fa-lg" @click="Count({review, index})" v-if="review.completed == false"></i>
                     <i class="fas fa-heart fa-bold fa-lg" v-else @click="Count2({review, index})"></i>
                 </span>

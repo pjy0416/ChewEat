@@ -22,10 +22,10 @@ export default {
         
     },
     created(){
-        const reviewroot = 'commodity/product/information/review';
-        axios.get(`${reviewroot}/${this.$state.information.ProductID}`)
+        // const reviewroot = 'commodity/product/information/review';
+        axios.get(`./information/review/${this.$state.information.ProductID}`)
             .then( response => 
-                (this.reviews = response.data))
+                (this.$store.state.reviewtest = response.data))
             .catch()
 
         console.log(this.reviews);
