@@ -58,6 +58,7 @@ export default{
     information : [],
 
     reviews : storage.fetch(),
+    reviewtest : []
 
     // 리뷰에 들어갈 기본 요소
     // var obj = {

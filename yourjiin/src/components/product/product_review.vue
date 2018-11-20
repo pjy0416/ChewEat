@@ -10,6 +10,7 @@
 import ReviewInput from './review/review_input.vue';
 import ReviewList from './review/review_list.vue';
 import ReviewHeader from './review/review_header.vue';
+import axios from 'axios';
 
 export default {
     data () {
@@ -19,6 +20,15 @@ export default {
     },  
     methods : {
         
+    },
+    created(){
+        const reviewroot = 'commodity/product/information/review';
+        axios.get(`${reviewroot}/${this.$state.information.ProductID}`)
+            .then( response => 
+                (this.reviews = response.data))
+            .catch()
+
+        console.log(this.reviews);
     },
     components : {
         ReviewList,

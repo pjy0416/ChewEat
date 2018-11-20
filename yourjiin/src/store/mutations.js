@@ -19,9 +19,14 @@ export default {
             item : getreview,
             count : 0,
         };
+        //추가 요청 보내기
         localStorage.setItem(getreview, JSON.stringify(obj));
         state.reviews.push(obj);
     },
+
+
+///////////////////////////////////////////////////////////////////////
+
 
     ClickOneItem(state, payload) {
         state.reviews[payload.index].completed = !state.reviews[payload.index].completed;

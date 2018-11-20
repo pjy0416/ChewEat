@@ -6,7 +6,6 @@
 //chart를 설치 -> plugin 폴더에 chartPlugin.js를 생성
 //main.js에 선언 -> mounted로 연결 -> 화면에 렌더링
 // commodity/product/information/test/1
-import axios from 'axios';
 
 export default {
     data(){
@@ -15,18 +14,8 @@ export default {
             ProductID : []
         }
     },
-    created() {
-        this.ProductID = this.$store.state.information.productID;
-        const chartroot = 'commodity/product/information/test';
-        axios.get(`${chartroot}/${this.ProductID}`)
-            .then( response => 
-                (this.chartdata = response.data))
-            .catch()
-
-        this.chartdata = this.$store.state.charts;
-    },
+    
     mounted() {
-        console.log(this.$store.state.charts);
         new this.ChartJS(this.$refs.myChart, {
             // The type of chart we want to create
             type: 'pie',

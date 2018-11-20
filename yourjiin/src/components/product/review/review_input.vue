@@ -1,7 +1,4 @@
 <template>
-<!-- <label for="male">Male</label>
-  <input type="radio" name="gender" id="male" value="male"> -->
-  
     <div class = "inputBox shadow">
         <input type="text" v-model="review" v-on:keyup.enter="addTodo">
         <span class = "addContainer" @click="addTodo">
@@ -40,8 +37,8 @@ export default {
         addTodo(){
             if(this.review !== ''){
                 // this.$emit('addItem' , this.review)
-                this.$store.commit('addOneItem', this.review)
-                this.review = ''
+                this.$store.commit('addOneItem', this.review);
+                this.review = '';
             }
             else {
                 this.showModal = !this.showModal;

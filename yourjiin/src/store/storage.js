@@ -1,3 +1,4 @@
+
 const storage = {
     fetch() {
         const arr = [];
@@ -9,7 +10,15 @@ const storage = {
             }
         }
         return arr;
-    }
+    },
+    // fetchreview(){
+    //     const arr = [];
+    //     const reviewroot = 'commodity/product/information/review';
+    //     axios.get(`${reviewroot}/${this.$state.information.ProductID}`)
+    //         .then( response => 
+    //             arr.push(JSON.parse(response.data))
+    //         .catch()
+    // },
 };
 
 export { storage }

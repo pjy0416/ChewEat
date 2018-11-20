@@ -56,6 +56,7 @@
 
 <script> 
 import ChartModule from '../common/Chartmodule.vue';
+import axios from 'axios';
 
 export default {
    data(){
@@ -67,7 +68,16 @@ export default {
        }
    },
    created(){
-       this.information = this.$store.state.information;
+        this.information = this.$store.state.information;
+        
+        this.ProductID = this.$store.state.information.productID;
+        const chartroot = 'commodity/product/information/detail';
+        axios.get(`${chartroot}/${this.ProductID}`)
+            .then( response => 
+                (this.chartdata = response.data))
+            .catch()
+
+        this.chartdata = this.$store.state.charts;
 
    },
    components : {
