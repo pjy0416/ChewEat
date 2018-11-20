@@ -14,10 +14,10 @@
                                 </router-link>  
                             </div>
                             <div class = "text-main">
-                                <p> <i class="far fa-heart fa-bold fa-lg"></i> LIKE &nbsp; {{item.likeCount}}</p>
-                                <p> <i class="far fa-user fa-bold fa-lg"></i> REVIEW &nbsp; {{item.review}}</p>
                                 <p> DESCRIPT</p>
                                 <p>{{item.productTaste}}</p>
+                                <p> <i class="far fa-heart fa-bold fa-lg"></i> LIKE &nbsp; {{item.likeCount}}</p>
+                                <p> <i class="far fa-user fa-bold fa-lg"></i> REVIEW &nbsp; {{item.review}}</p>  
                             </div>
                         </span>
                     </div>
@@ -69,7 +69,7 @@ export default {
     }
     .product-align { 
         display : inline-block;
-        width : 50%;
+        width : 100%;
         padding : 10px 15px 10px 15px;
         
     }
@@ -83,11 +83,12 @@ export default {
         /* background-color: white; */
         
     }
-    .product-left-section , .product-right-section{ 
-        width : 50%;
+    .product-left-section { 
+        width : 35%;
         /* min-height : inherit; */
     }
     .product-right-section {
+        width : 65%;
         background-color: white;
         border-radius : 0 15px 0 0;
     }
@@ -118,11 +119,13 @@ export default {
     .text-main p {
         margin-bottom : 10px;
     }
-    .text-main p:nth-last-child(1), .text-main p:nth-last-child(2) , .text-main p:nth-last-child(2) {
+    .text-main p:nth-last-child(1), .text-main p:nth-last-child(2), .text-main p:nth-last-child(4) {
+        font-weight : bold;
         margin-left : 2px;
     }
     .text-main p:nth-last-child(2) {
-        font-weight : bold;
+        
+        margin-top : 20px;
     }
     .text-main {
         /* background-color: white; */

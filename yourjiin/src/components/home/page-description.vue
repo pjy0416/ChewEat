@@ -8,13 +8,13 @@
                 @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
                 <b-carousel-slide 
-                    img-src = 'https://i.postimg.cc/cJtJrxJ8/Chew-Eat-image-1.jpg'>
+                    img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
                 </b-carousel-slide>
                 <b-carousel-slide
-                    img-src = 'https://i.postimg.cc/cJtJrxJ8/Chew-Eat-image-1.jpg'>
+                    img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
                 </b-carousel-slide>
                 <b-carousel-slide 
-                    img-src = 'https://i.postimg.cc/cJtJrxJ8/Chew-Eat-image-1.jpg'>
+                    img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
                 </b-carousel-slide>
             </b-carousel>
         </div>

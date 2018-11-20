@@ -48,9 +48,12 @@ export default{
         {id : 'instant' , index : 5, value : 'Instant', url : 'https://i.postimg.cc/pX58KZ77/Chew-Eat-instant-icon.png' }                
     ],
 
-    products : [],
+    products : [
+        {id : 0, productName : "title", likeCount : 10, review : 10, productTaste : 'good', productMatrials : 'material',allergenic : 'allergenic'
+    , createdTime : 'comment'}
+    ],
     
-    charts : [],
+    charts : [10, 20, 10, 20, 19, 29],
 
     information : [],
 

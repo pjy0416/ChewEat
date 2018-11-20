@@ -22,8 +22,11 @@ export default {
             .then( response => 
                 (this.chartdata = response.data))
             .catch()
+
+        this.chartdata = this.$store.state.charts;
     },
     mounted() {
+        console.log(this.$store.state.charts);
         new this.ChartJS(this.$refs.myChart, {
             // The type of chart we want to create
             type: 'pie',
@@ -35,8 +38,7 @@ export default {
                         'rgba(255, 56, 32, 1)', 'rgba(255, 56, 32, 0.7)', 'rgba(255, 56, 32, 0.4)', 'rgba(32, 24, 21, 0.2)',  
                         'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'  
                     ],
-                    data: [this.chartdata.natrium, this.chartdata.carbohydrate, this.chartdata.sugars, 
-                            this.chartdata.fat, this.chartdata.cholesterol, this.chartdata.protein],
+                    data: this.$store.state.charts,
                 }],
                 labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
             },
