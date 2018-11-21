@@ -69,8 +69,48 @@ export const reviewInsertQuery = transaction(async (con, param1, param2) => {
 });
 
 // 제품 리뷰 달릴 때 카운팅 ~> product 테이블의 review(숫자)에 저장
-//export const reviewCount = transaction
+export const productLikeChange = transaction(async (con, param1, param2) => {
+    let fetchQuery = "SELECT likeCount FROM PRODUCT WHERE PRODUCTID = ? ";
+    let updateQuery = "UPDATE PRODUCT SET likeCount =? WHERE PRODUCTID = ? ";
 
+    const fetch = await con.query(fetchQuery, param1);
+
+    let likeCount = fetch[0].likeCount;
+    console.log(likeCount);
+    if(param2 === 'true') {
+        likeCount += 1;
+    } else {
+        if(likeCount === 0) {
+            likeCount =0;
+        }else {
+            likeCount -= 1;
+        }
+    }
+    console.log(likeCount);
+    await con.query(updateQuery, [likeCount, param1]);
+
+    return true;
+});
+
+export const reviewLikeChange = transaction(async (con, param1, param2) => {
+    let fetchQuery = "SELECT likeCount FROM REVIEW WHERE REVIEWID = ? ";
+    let updateQuery = "UPDATE REVIEW SET likeCount =? WHERE REVIEWID = ? ";
+
+    const fetch = await con.query(fetchQuery, param1);
+    let likeCount = fetch[0].likeCount;
+    if(param2 === 'true') {
+        likeCount += 1;
+    } else {
+        if(likeCount === 0) {
+            likeCount =0;
+        }else {
+            likeCount -= 1;
+        }
+    }
+    await con.query(updateQuery, [likeCount, param1]);
+
+    return true;
+});
 
 //6. review 좋아요 클릭 시 좋아요 갯수 늘어나게
 export const reviewIncLikeQuery = transaction(async (con, param) => {
