@@ -1,6 +1,6 @@
 <template>
     <div class = "inputBox shadow">
-        <input type="text" v-model="review" v-on:keyup.enter="addTodo">
+        <input type="text" v-model="model" v-on:keyup.enter="addTodo">
         <span class = "addContainer" @click="addTodo">
             <i class="fas fa-paper-plane fa-lg addBtn" style="color : #FF3820;"></i>
         </span>
@@ -29,7 +29,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            review : "",
+            model : "",
             showModal : false,
         }
     },
@@ -42,18 +42,18 @@ export default {
     },
     methods : {
         addTodo(){
-            if(this.review !== ''){
+            if(this.model !== ''){
                 // this.$emit('addItem' , this.review)
                 this.$store.commit('addOneItem', {
-                    review : this.review, 
-                    comment : this.$store.state.reviewTest[0].commentID, 
+                    review : this.model, 
+                    reviewID : this.$store.state.reviewTest[0].reviewID, 
                     like :  this.$store.state.reviewTest[0].likeCount, 
                     product :  this.$store.state.reviewTest[0].productID
                 });
 
             axios.post(`./information/review/addReview/${this.$store.state.reviewTest[0].productID}`, {
                 productID : this.$store.state.reviewTest[0].productID,
-                review : this.review, 
+                review : this.model, 
             })
                .then( response => {
                    console.log(response);
@@ -62,7 +62,7 @@ export default {
                     console.log(error);
                 });
 
-                this.review = '';
+                this.model = '';
             }
             else {
                 this.showModal = !this.showModal;

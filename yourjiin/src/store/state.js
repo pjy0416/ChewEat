@@ -56,14 +56,9 @@ export default{
     information : [],
 
     reviews : storage.fetch(),
+    //새로 입력하는 리뷰 데이터
     
     reviewTest : []
+    //DB에서 불러오는 리뷰 정보
 
-    // 리뷰에 들어갈 기본 요소
-    // var obj = {
-    //     completed : false,
-    //     item : getreview,
-            //item -- 리뷰 내용
-    //     count : 0,
-    // };
 }

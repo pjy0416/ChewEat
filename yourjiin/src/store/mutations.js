@@ -12,8 +12,8 @@ export default {
     },
     addOneItem(state, payload) {
         const obj = {
-            commentID : payload.comment,
-            contents : payload.review,
+            reviewID : payload.reviewID,
+            review : payload.review,
             likeCount : payload.like,
             productID : payload.product,
             completed : false,

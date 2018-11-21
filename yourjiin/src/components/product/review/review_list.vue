@@ -2,6 +2,7 @@
     <div>
         <!-- {{this.$store.state.reviewTest}} -->
         <transition-group name = "list" tag = "ul">
+            <!-- DB에서 가져온 정보를 바로 뿌려주는 부분 -->
             <li class = "shadow" v-for="(review, index) in this.$store.state.reviewTest" :key="review.commentID">
                 {{review.contents}}
                 <span class = "like-button">
@@ -35,9 +36,15 @@ export default {
             Count  : 'ClickOneItem',
             Count2 : 'ReturnOneItem'
         }), 
+        removeAll(){
+            localStorage.clear();
+            this.$store.state.reviews = [];
+        }
         
     },
-    
+    created(){
+        this.removeAll();
+    },
     computed : {
         ...mapGetters(['putreviews'])
     }
