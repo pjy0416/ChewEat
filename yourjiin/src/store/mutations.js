@@ -1,4 +1,3 @@
-
 export default {
     push_data(state, data){
         state.selected = data;
@@ -6,23 +5,33 @@ export default {
     remove_data(state){
         state.selected = [];
     },
-
     ////////////////////////////////
 
     Send_data(state, payload ){
         state.information = payload;
     },
-    
-    addOneItem(state, getreview){
-        var obj = {
+    addOneItem(state, payload) {
+        const obj = {
+            commentID : payload.comment,
+            contents : payload.review,
+            likeCount : payload.like,
+            productID : payload.product,
             completed : false,
-            item : getreview,
-            count : 0,
         };
-        //추가 요청 보내기
-        localStorage.setItem(getreview, JSON.stringify(obj));
-        state.reviews.push(obj);
+        localStorage.setItem(payload.review, JSON.stringify(obj));
+        state.reviewTest.push(obj);
+        
     },
+    // addOneItem(state, getreview){
+    //     var obj = {
+    //         completed : false,
+    //         item : getreview,
+    //         count : 0,
+    //     };
+    //     //추가 요청 보내기
+    //     localStorage.setItem(getreview, JSON.stringify(obj));
+    //     state.reviews.push(obj);
+    // },
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -39,5 +48,8 @@ export default {
 
 
     ////////////////// Axios /////////////////////////
+    SET_PRODUCT(state, data) {
+        state.products = data;
+    }
 
 }

@@ -34,11 +34,7 @@ export default {
         width : 100%;
     }
     .category-main {
-        /* display : flex; */
-        /* align-items : center; */
-        margin-bottom : 50px;
-        /* font-size : 2rem; */
-        /* font-weight: bold; */
+        margin-bottom : 50px;  
     }
     
 

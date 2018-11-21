@@ -15,30 +15,24 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            reviews : []
+            reviews : [],
+            root : [],
         }
     },  
-    methods : {
-        
-    },
-    created(){
-        // const reviewroot = 'commodity/product/information/review';
-        axios.get(`./information/review/${this.$state.information.ProductID}`)
-            .then( response => 
-                (this.$store.state.reviewtest = response.data))
-            .catch()
-
-        console.log(this.$store.state.reviewtest[0].contents);
-        console.log(this.$store.state.reviewtest[1].contents);
-        console.log(this.$store.state.reviewtest[2].contents);
-        console.log(this.$store.state.reviewtest[3].contents);
-
-    },
     components : {
         ReviewList,
         ReviewInput,
         ReviewHeader
-    }
+    },
+    
+    created() {
+        this.root = this.$store.state.information.productName;
+        axios.get(`./information/review/${this.root}`)
+            .then(response =>
+                // (console.log(response.data.review)))
+                (this.$store.state.reviewTest = response.data.review))
+            .catch()
+    },
 
 
 }
