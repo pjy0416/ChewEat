@@ -15,5 +15,11 @@ export const reviewInsertCall = async(req, res) =>{
     let productID = req.body.productID;
     let review = req.body.review;
     let execQuery = reviewInsertQuery(productID, review);
-    res.writeHead(200);
+
+    if(execQuery) {
+        res.send('complete', res.writeHead(200, {"Content-Type": "html/text", "charset": "utf-8"}));
+    } else {
+        res.send('fail', res.writeHead(404));
+    }
+    //res.end();
 };

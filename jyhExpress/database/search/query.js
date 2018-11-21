@@ -60,12 +60,12 @@ export const reviewInsertQuery = transaction(async (con, param1, param2) => {
     let commentSize = fetch[0].reviewID+1;
 
     //Insert a comment to database
-    const insert = await con.query(insertQuery, [commentSize, param1, param2]);        // param1 = productID, param2 = content
+    await con.query(insertQuery, [commentSize, param1, param2]);        // param1 = productID, param2 = content
 
     //Synchronize a number of review between PRODUCT and COMMENT
     await con.query(syncQuery, param1);     // 사용하지 않을 결과기 때문에 변수로 지정 x
 
-    return insert;
+    return true;
 });
 
 // 제품 리뷰 달릴 때 카운팅 ~> product 테이블의 review(숫자)에 저장
