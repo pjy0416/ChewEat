@@ -11,7 +11,7 @@ router.get('/', home);
 // for refresh
 router.get('/home', home);
 router.use('/commodity', commodity);
-router.use('/community', community);
+//router.use('/community', community);          // 커뮤니티는 나중에 개발..
 
 
 module.exports = router;
