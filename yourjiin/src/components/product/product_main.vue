@@ -13,20 +13,26 @@
                     <div class = "item-text-main">
                         <div class = "item-text-main-left">
                             <div class = "left-main-nutrient">
-                                <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient Section
+                                <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
                                 <p class = "information-p">{{information.productMatrials}}</p>
                             </div>
                             <div class = "left-main-allerginic">
-                                <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic Section
+                                <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
                                 <p class = "information-p">{{information.allergenic}}</p>
                             </div>
                         </div>
                         <div class = "item-text-main-right">
                             <div class = "right-main-information">
                                 <span class = "information-like">
-                                    <p @click="Count(information.like ++)" style="margin-bottom : 20px;"><i class="far fa-heart fa-bold fa-lg" style="margin-right:10px;" ></i>
+                                    <p style="margin-bottom : 20px;"><i class="far fa-heart fa-bold fa-lg" style="margin-right:10px;" ></i>
                                         Like &nbsp;
-                                        <span class = "information-item" >{{information.likeCount}}</span></p>
+                                        <span class = "information-item"  >
+                                            {{ information.likeCount }}
+                                        </span>
+                                        <span class = "like-btn"  >
+                                            <i class="fas fa-thumbs-up fa-bold fa-lg" @click="Count" style = "margin-left : 10px;"></i>
+                                        </span>
+                                    </p>
                                 </span>
                                 <span class = "information-review">
                                     <p style="margin-left : 2px; margin-bottom : 20px;" >
@@ -58,6 +64,7 @@
 
 <script> 
 import ChartModule from '../common/Chartmodule.vue';
+
 import axios from 'axios';
 
 export default {
@@ -67,13 +74,34 @@ export default {
                 data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45, data6 : 32
             },
             information : [],
+            like : false,
        }
    },
    created() {
        this.information = this.$store.state.information;
    },
+   methods : {
+       Click() {
+            if(this.like == false){
+                this.like = true;
+                axios.post(`./information/review/likeCount/product/${this.information.productID}`, {
+                    productID : this.information.productID,
+                    likeCount : this.like
+                })
+           }
+           else{
+               this.like = false;
+               axios.post(`./information/review/likeCount/product/${this.information.productID}`, {
+                    productID : this.information.productID,
+                    likeCount : this.like
+                })
+           }
+           
+           
+       }
+   },
    components : {
-       ChartModule
+       ChartModule,
    }
 }
 </script>
@@ -169,6 +197,13 @@ export default {
         margin-bottom : 30px;
     }
 
+/* //////////////////////////////////////// */
+    .like-btn {
+        color : #FF3820;
+        margin-right : 10px;
+    }
+    
+    
 /* //////////////////////////////////////// */
     @media(max-width : 1000px) {
         .item-chart {

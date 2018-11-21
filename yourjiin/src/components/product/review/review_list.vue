@@ -91,5 +91,13 @@ export default {
         opacity : 0;
         transform : translateY(30px);
     }
+    /* list2 item transition */
+    .list2-enter-active, .list2-leave-active{
+        transition : all 1s;
+    }
+    .list2-enter, .list2-leave-to{
+        opacity : 0;
+        transform : translateY(30px);
+    }
 </style>
 
