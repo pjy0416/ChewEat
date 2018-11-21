@@ -15,7 +15,7 @@
                 {{putreview.contents}}
                 <span class = "like-button">
                     <span class = "like-count" >{{putreview.likeCount}}</span>
-                    <i class="far fa-heart fa-bold fa-lg" @click="Count(putreview, index)"></i>
+                    <i class="fas fa-heart fa-bold fa-lg" @click="Count(putreview, index)"></i>
                 </span>
             </li>
         </transition-group>
@@ -35,14 +35,9 @@ export default {
             Count  : 'ClickOneItem',
             Count2 : 'ReturnOneItem'
         }), 
-        removeAll(){
-            localStorage.clear();
-            this.$store.state.reviews = [];
-        }
+        
     },
-    created(){
-        window.addEventListener('beforeunload', this.removeAll());
-    },
+    
     computed : {
         ...mapGetters(['putreviews'])
     }

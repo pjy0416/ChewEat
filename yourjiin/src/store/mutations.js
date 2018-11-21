@@ -1,4 +1,3 @@
-
 export default {
     push_data(state, data){
         state.selected = data;

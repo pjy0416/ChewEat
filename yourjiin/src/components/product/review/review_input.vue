@@ -24,7 +24,7 @@
 
 <script>
 import Modal from '../../common/modal.vue';
-// import ReviewList from './review_list.vue';
+import axios from 'axios';
 
 export default {
     data() {
@@ -49,6 +49,17 @@ export default {
                     comment : this.$store.state.reviewTest[0].commentID, 
                     like :  this.$store.state.reviewTest[0].likeCount, 
                     product :  this.$store.state.reviewTest[0].productID
+                });
+
+            axios.post(`./information/review/addReview/${this.$store.state.reviewTest[0].productID}`, {
+                productID : this.$store.state.reviewTest[0].productID,
+                review : this.review, 
+            })
+               .then( response => {
+                   console.log(response);
+                })
+                .catch( error =>  {
+                    console.log(error);
                 });
 
                 this.review = '';

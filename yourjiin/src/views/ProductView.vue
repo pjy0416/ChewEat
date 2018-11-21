@@ -19,6 +19,12 @@ export default {
         ProductMain,
         ProductReview
     },
+    methods : {
+        removeAll(){
+            localStorage.clear();
+            this.$store.state.reviews = [];
+        }
+    }
 }
 </script>
 
