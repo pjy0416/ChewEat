@@ -43,16 +43,16 @@ export const transaction = fn => async (...args) => {
     /* 트렌젝션 시작 */
     await con.connection.beginTransaction();
     /* 비지니스 로직에 con을 넘겨준다. */
-    await fn(con, ...args).catch(async (error) => {
+    const result = await fn(con, ...args).catch(async (error) => {
         /* rollback을 진행한다. */
         await con.rollback();
         /* 에러시 con을 닫아준다. */
         con.connection.release();
-        return false;
+        throw error;
     });
     /* commit을 해준다. */
     await con.commit();
     /* con을 닫아준다. */
     con.connection.release();
-    return true;
+    return result;
 };

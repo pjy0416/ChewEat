@@ -14,12 +14,11 @@ export const detailPageCall = async(req,res,param) => {
 export const reviewInsertCall = async(req, res) =>{
     let productID = req.body.productID;
     let review = req.body.review;
-    let execQuery = reviewInsertQuery(productID, review);
-
-    if(execQuery) {
-        res.send('complete', res.writeHead(200, {"Content-Type": "html/text", "charset": "utf-8"}));
-    } else {
-        res.send('fail', res.writeHead(404));
+    let execQuery = await reviewInsertQuery(productID, review);
+    
+    if(execQuery === true){
+        res.send(200,{message:"success"});
+    } else{
+        res.send(404,{message:"fail"});
     }
-    //res.end();
 };
