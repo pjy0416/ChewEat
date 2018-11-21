@@ -14,7 +14,7 @@
                                 </router-link>  
                             </div>
                             <div class = "text-main">
-                                <p> DESCRIPT</p>
+                                <p style="font-weight : bold;"> DESCRIPT</p>
                                 <p>{{item.productTaste}}</p>
                                 <p> <i class="far fa-heart fa-bold fa-lg" style="margin-right : 10px;"></i> 
                                         LIKE &nbsp; <span class = "text-item">{{item.likeCount}}</span></p>

@@ -64,21 +64,23 @@
 
 <script> 
 import ChartModule from '../common/Chartmodule.vue';
-
 import axios from 'axios';
 
 export default {
    data(){
        return {
-            value : {
-                data1: 30, data2 : 35, data3: 40, data4: 38, data5: 45, data6 : 32
-            },
             information : [],
             like : false,
        }
    },
    created() {
        this.information = this.$store.state.information;
+
+       this.root = this.$store.state.information.productName;
+        axios.get(`./information/review/${this.root}`)
+            .then(response =>
+                (this.$store.state.charts = response.data.nutrition))
+            .catch()
    },
    methods : {
        SendLike() {
@@ -200,6 +202,9 @@ export default {
         color : #FF3820;
         margin-right : 10px;
         width : 2rem;
+    }
+    .like-btn:hover {
+        color : black;
     }
     
     

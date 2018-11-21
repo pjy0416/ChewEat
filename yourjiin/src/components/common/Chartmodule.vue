@@ -10,53 +10,65 @@
 export default {
     data(){
         return {
-            chartdata : [],
-            ProductID : []
         }
     },
     
     mounted() {
-        new this.ChartJS(this.$refs.myChart, {
-            // The type of chart we want to create
-            type: 'pie',
-            // The data for our dataset
-            data: {
-                datasets: [{
-                    label: "Nutrient",
-                    backgroundColor: [
-                        'rgba(255, 56, 32, 1)', 'rgba(255, 56, 32, 0.7)', 'rgba(255, 56, 32, 0.4)', 'rgba(32, 24, 21, 0.2)',  
-                        'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'  
-                    ],
-                    data: this.$store.state.charts,
-                }],
-                labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
-            },
 
-            // Configuration options go here
-            options: {
-                legend : {
-                    position : 'bottom',
-                    labels : {
-                        fontSize : 10,
-                        padding : 15,
+        setTimeout(() => {
+            console.log(this.$store.state.charts);
+            new this.ChartJS(this.$refs.myChart, {
+                // The type of chart we want to create
+                type: 'pie',
+                // The data for our dataset
+                data: {
+                    datasets: [{
+                        label: "Nutrient",
+                        backgroundColor: [
+                            'rgba(255, 56, 32, 1)', 'rgba(255, 56, 32, 0.7)', 'rgba(255, 56, 32, 0.4)', 'rgba(32, 24, 21, 0.2)',  
+                            'rgba(32, 24, 21, 0.4)','rgba(32, 24, 21, 0.7)'  
+                        ],
+                        borderColor: [
+                            'rgba(0,0,0,0.1)',
+                            'rgba(0, 0, 0, 0.1)',
+                            'rgba(0, 0, 0, 0.1)',
+                            'rgba(0, 0, 0, 0.1)',
+                            'rgba(0, 0, 0, 0.1)',
+                            'rgba(0, 0, 0, 0.1)'
+                        ],
+                        data: [this.$store.state.charts[0].NATRIUM, this.$store.state.charts[0].CARBOHYDRATE,
+                        this.$store.state.charts[0].SUGARS, this.$store.state.charts[0].FAT,
+                        this.$store.state.charts[0].CHOLESTEROL, this.$store.state.charts[0].PROTEIN]
+                    }],
+                    labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
+                },
+
+                // Configuration options go here
+                options: {
+                    legend : {
+                        position : 'bottom',
+                        labels : {
+                            fontSize : 10,
+                            padding : 15,
+                        },
+                        fullWidth : true,
                     },
-                    fullWidth : true,
-                },
-                animation : {
-                    animateRotate : true,
-                    animateScale : true
-                },
-                tooltips : {
-                    titleFontSize : 30,
-                    bodyFontSize : 14,
-                    caretPadding : 10,
-                    caretSize : 13,
-                    xPadding : 50,
-                    yPadding : 10,
-                    bodySpacing : 30
+                    animation : {
+                        animateRotate : true,
+                        animateScale : true
+                    },
+                    tooltips : {
+                        titleFontSize : 30,
+                        bodyFontSize : 14,
+                        caretPadding : 10,
+                        caretSize : 13,
+                        xPadding : 50,
+                        yPadding : 10,
+                        bodySpacing : 30
+                    },
                 }
-            }
-        });
+            });
+        }, 100);
     }
 }
 </script>

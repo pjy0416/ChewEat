@@ -1,13 +1,12 @@
-import { fetchProduct } from '../api/index.js';
+// import { fetchProduct } from '../api/index.js';
+import axios from 'axios';
 
 export default{
-    FETCH_PRODUCT({commit}){
-        return fetchProduct()
-            .then( response => {
-                commit('SET_PRODUCT', response.data);
-                return response;
-            })
-            .catch()
-    },    
+    FETCH_CHARTDATA({commit}){
+        axios.get().
+        setTimeout(() => {
+            commit('Set_ChartData', this.$store.state.chartTest)
+        }, 500)
+    }
 }   
 
