@@ -51,22 +51,25 @@ export const reviewQuery = connect(async (con, param) => {
 });
 
 //5. comment 작성 시 데이터 베이스에 update
-export const reviewInsertQuery = connect(async (con, param1, param2) => {
+export const reviewInsertQuery = transaction(async (con, param1, param2) => {
     let fetchQuery = "SELECT COUNT(reviewID) AS reviewID FROM REVIEW ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let insertQuery = " INSERT INTO REVIEW (reviewID, productID, contents) values (?, ?, ?) ";                     // 받아온 count number를 review에 대입
-    let syncQuery = "UPDATE PRODUCT SET REVIEW = ? WHERE PRODUCTID = ? ";
+    let insertQuery = "INSERT INTO REVIEW (reviewID, productID, contents) values (?, ?, ?) ";                     // 받아온 count number를 review에 대입
+    let syncQuery = "UPDATE PRODUCT SET REVIEW  = (SELECT COUNT(PRODUCTID) FROM REVIEW WHERE PRODUCTID = ?) ";
 
     const fetch = await con.query(fetchQuery, []);
-    let commentSize = fetch[0].commentID+1;
+    let commentSize = fetch[0].reviewID+1;
 
     //Insert a comment to database
     const insert = await con.query(insertQuery, [commentSize, param1, param2]);        // param1 = productID, param2 = content
 
     //Synchronize a number of review between PRODUCT and COMMENT
-    //await con.query(syncQuery, param1);     // 사용하지 않을 결과기 때문에 변수로 지정 x
+    await con.query(syncQuery, param1);     // 사용하지 않을 결과기 때문에 변수로 지정 x
 
     return insert;
 });
+
+// 제품 리뷰 달릴 때 카운팅 ~> product 테이블의 review(숫자)에 저장
+//export const reviewCount = transaction
 
 
 //6. review 좋아요 클릭 시 좋아요 갯수 늘어나게
@@ -98,7 +101,7 @@ export const reviewDecLikeQuery = transaction(async (con, param) => {
 //8. 제품 좋아요 클릭 시 좋아요 갯수 늘어나게
 export const productIncLikeQuery = transaction(async (con, param) => {
     let fetchQuery = "SELECT likeCount FROM PRODUCT WHERE PRODUCTID = ? ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let updateQuery = "UPDATE PRODUCT SET likeCount = ? WHERE PRODUCtID = ? ";                     // 받아온 count number를 review에 대입
+    let updateQuery = "UPDATE PRODUCT SET likeCount = ? WHERE PRODUCTID = ? ";                     // 받아온 count number를 review에 대입
 
     const fetch = await con.query(fetchQuery, param);
     let increasedNum = fetch[0].likeCount +1;

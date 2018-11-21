@@ -14,7 +14,6 @@ export const detailPageCall = async(req,res,param) => {
 export const reviewInsertCall = async(req, res) =>{
     let productID = req.body.productID;
     let review = req.body.review;
-
-    let execQuery = reviewInsertQuery(req,res, productID, review);
-    console.log(execQuery);
+    let execQuery = reviewInsertQuery(productID, review);
+    res.writeHead(200);
 };

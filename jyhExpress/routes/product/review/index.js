@@ -17,12 +17,5 @@ router.post('/addReview/:productID', (req, res) => {
 //  }
 });
 
-/*router.post('/test/test?:id',(req,res) => {
-    res.send("it's right");
-});*/
-
-router.post('/test/test?', (req,res) => {
-    res.send(123);
-});
 
 module.exports = router;
