@@ -29,8 +29,8 @@
                                         <span class = "information-item"  >
                                             {{ information.likeCount }}
                                         </span>
-                                        <span class = "like-btn"  >
-                                            <i class="fas fa-thumbs-up fa-bold fa-lg" @click="Count" style = "margin-left : 10px;"></i>
+                                        <span class = "like-btn" @click="SendLike">
+                                            <i class="fas fa-thumbs-up fa-bold fa-lg"  style = "margin-left : 10px;"></i>
                                         </span>
                                     </p>
                                 </span>
@@ -81,7 +81,7 @@ export default {
        this.information = this.$store.state.information;
    },
    methods : {
-       Click() {
+       SendLike() {
             if(this.like == false){
                 this.like = true;
                 axios.post(`./information/review/likeCount/product/${this.information.productID}`, {
@@ -95,9 +95,7 @@ export default {
                     productID : this.information.productID,
                     likeCount : this.like
                 })
-           }
-           
-           
+           }   
        }
    },
    components : {
@@ -201,6 +199,7 @@ export default {
     .like-btn {
         color : #FF3820;
         margin-right : 10px;
+        width : 2rem;
     }
     
     
