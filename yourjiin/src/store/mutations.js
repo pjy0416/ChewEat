@@ -19,7 +19,7 @@ export default {
             completed : false,
         };
         localStorage.setItem(payload.review, JSON.stringify(obj));
-        state.reviewTest.push(obj);
+        state.reviews.push(obj);
         
     },
     // addOneItem(state, getreview){

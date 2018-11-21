@@ -3,20 +3,20 @@
         <!-- {{this.$store.state.reviewTest}} -->
         <transition-group name = "list" tag = "ul">
             <!-- DB에서 가져온 정보를 바로 뿌려주는 부분 -->
-            <li class = "shadow" v-for="(review, index) in this.$store.state.reviewTest" :key="review.commentID">
+            <li class = "shadow" v-for="(review) in this.$store.state.reviewTest" :key="review.reviewID">
                 {{review.contents}}
                 <span class = "like-button">
                     <span class = "like-count" >{{review.likeCount}}</span>
-                    <i class="far fa-heart fa-bold fa-lg" @click="Count(review, index)"></i>
+                    <i class="fas fa-heart fa-bold fa-lg" @click="Count(review)"></i>
                 </span>
             </li>
         </transition-group>
         <transition-group name = "list2" tag = "ul">
-            <li class = "shadow" v-for="(putreview, index) in this.putreviews" :key="putreview.commentID">
-                {{putreview.contents}}
+            <li class = "shadow" v-for="(putreview) in this.putreviews" :key="putreview.reviewID">
+                {{putreview.review}}
                 <span class = "like-button">
                     <span class = "like-count" >{{putreview.likeCount}}</span>
-                    <i class="fas fa-heart fa-bold fa-lg" @click="Count(putreview, index)"></i>
+                    <i class="fas fa-heart fa-bold fa-lg" @click="Count(putreview)"></i>
                 </span>
             </li>
         </transition-group>
