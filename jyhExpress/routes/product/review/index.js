@@ -11,11 +11,6 @@ router.get('/:productName', (req, res) => {
 
 router.post('/addReview/:productID', (req, res) => {
     reviewInsertCall(req,res);
-//    if() {
-//      데이터베이스에 들어가면
-//      response 200, 아니면 404
-//  }
 });
-
 
 module.exports = router;
