@@ -75,19 +75,19 @@ export default {
             information : [],
             like : false,
             model : [],
-            root : [],
-            root2 : [],
+            productNameRoot : [],
+            productIDRoot : [],
        }
    },
    beforeCreate(){
    },   
    created() {
 
-        this.root = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1));
-        this.root2 = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-2));
+        this.productNameRoot = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1));
+        this.productIDRoot = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-2));
 
-        axios.post(`./information/review/${this.root}/${this.root2}`, {
-            productID : this.root2
+        axios.post(`./information/review/${this.productNameRoot}/${this.productIDRoot}`, {
+            productID : this.productIDRoot
         })
             .then( response => {
                 this.$store.state.checkedproduct = response.data.product;
@@ -96,7 +96,7 @@ export default {
                 console.log(error);
             });
         
-        axios.get(`./information/review/${this.root}`)
+        axios.get(`./information/review/${this.productNameRoot}`)
             .then(response =>
                 (this.$store.state.charts = response.data.nutrition))
             .catch();
@@ -106,20 +106,17 @@ export default {
    
    methods : {
         SendLike() {
-            if(this.like == false){
+            if(this.like === false)
                 this.like = true;
-                axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
-                    productID : this.$store.state.information.productID,
-                    likeCount : this.like
-                })
-           }
-           else{
+           else
                this.like = false;
-               axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
-                    productID : this.$store.state.information.productID,
+
+
+               axios.post(`./information/review/likeCount/product/${this.productIDRoot}`, {
+                    productID : this.productIDRoot,
                     likeCount : this.like
                 })
-           }   
+           
        }
    },
    components : {
