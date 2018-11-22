@@ -44,24 +44,19 @@ export default {
             this.$store.state.reviews = [];
         },
         SendLike(reviewID) {
-            if(this.like == false){
+            if(this.like == false)
                 this.like = true;
-                axios.post(`./information/review/likeCount/review/${reviewID}`, {
-                    reviewID : reviewID,
-                    likeCount : this.like,
-                })
-           }
-           else{
+
+           else
                this.like = false;
+               
                axios.post(`./information/review/likeCount/review/${reviewID}`, {
                     reviewID : reviewID,
                     likeCount : this.like
                 })
-           }   
        },
        Backtopage(){
-           alert('You can check this icon after refresh this page');
-           history.back();
+           alert('Thank you for your Like');
        }
         
     },
