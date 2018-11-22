@@ -27,6 +27,7 @@ export default {
     
     //DB에 있는 리뷰 정보를 가져오는 부분
     created() {
+
         this.root = this.$store.state.information.productName;
         axios.get(`./information/review/${this.root}`)
             .then(response =>

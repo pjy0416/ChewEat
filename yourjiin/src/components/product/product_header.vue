@@ -9,7 +9,7 @@ import Logo from '../common/logo.vue';
 export default {
     components : {
         Logo,
-    }
+    },
 }
 </script>
 
