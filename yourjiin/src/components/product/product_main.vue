@@ -106,20 +106,17 @@ export default {
    
    methods : {
         SendLike() {
-            if(this.like == false){
+            if(this.like === false)
                 this.like = true;
-                axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
-                    productID : this.$store.state.information.productID,
-                    likeCount : this.like
-                })
-           }
-           else{
+           else
                this.like = false;
-               axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
-                    productID : this.$store.state.information.productID,
+
+
+               axios.post(`./information/review/likeCount/product/${this.productIDRoot}`, {
+                    productID : this.productIDRoot,
                     likeCount : this.like
                 })
-           }   
+           
        }
    },
    components : {
