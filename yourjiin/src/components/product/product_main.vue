@@ -1,55 +1,73 @@
 <template>
-    <div class = "item-container">
-        <div class = "item-main">
-            <div class = "item-align">
-                <div class = "item-image-section">
-                    <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/>
-                    <!-- <b-img class = "item-img" src="https://i.postimg.cc/D0MHn7DT/600-600.jpg" fluid alt="image"/> -->
+    <div class = "product-container">
+        <div class = "information-container">
+            <div class = "product-header-section">
+                <div class = "product-header">
+                    {{this.$store.state.checkedproduct.productName}}
+                    title
                 </div>
-                <div class = "item-text-section">
-                    <div class = "item-text-header">
-                        {{this.$store.state.checkedproduct.productName}}
+            </div>
+            <div class = "product-body-section">
+                <div class = "product-body-section-left">
+                    <div class = "image-section">
+                        <!-- <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/> -->
+                        <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/>
                     </div>
-                    <div class = "item-text-main">
-                        <div class = "item-text-main-left">
-                            <div class = "left-main-nutrient">
-                                <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
-                                <p class = "information-p">{{this.$store.state.checkedproduct.productMatrials}}</p>
+                </div>
+                <div class = "product-body-section-right">
+                    <div class = "text-section">
+                        <div class = "text-top">
+                            <div class = "text-top-left">
+                                <div class = "text-top-left-header">
+                                    <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
+                                </div>
+                                <div class = "text-top-left-body">
+                                    {{this.$store.state.checkedproduct.productMatrials}}Nutrient
+                                </div>
                             </div>
-                            <div class = "left-main-allerginic">
-                                <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
-                                <p class = "information-p">{{this.$store.state.checkedproduct.allergenic}}</p>
-                            </div>
-                        </div>
-                        <div class = "item-text-main-right">
-                            <div class = "right-main-information">
-                                <span class = "information-like">
-                                    <p style="margin-bottom : 20px;"><i class="far fa-heart fa-bold fa-lg" style="margin-right:10px;" ></i>
-                                        Like &nbsp;
-                                        <span class = "information-item"  >
-                                            {{ this.$store.state.checkedproduct.likeCount }}
-                                        </span>
-                                    </p>
-                                </span>
-                                <span class = "information-review">
-                                    <p style="margin-left : 2px; margin-bottom : 20px;" >
-                                        <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>
-                                        Review &nbsp;
-                                        <span class = "information-item">{{this.$store.state.checkedproduct.review}}</span></p>
-                                </span>
-                            </div>
-                            <div class = "right-main-comment">
-                                <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Comment 
-                                <p class = "information-p">{{this.$store.state.checkedproduct.overWeight}}</p>
-                                <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}</p>
-                                <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}</p>
+                            <div class = "text-top-right">
+                                <div class = "text-top-right-header">
+                                    <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Information
+                                </div>
+                                <div class = "text-top-right-body">
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.overWeight}}overWeight</p>
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}perWeight</p>
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}kcal</p>
+                                </div>
                             </div>
                         </div>
-                    </div>  
+                        <div class = "text-bottom">
+                            <div class = "text-bottom-left">
+                                <div class = "text-bottom-left-header">
+                                    <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
+                                </div>
+                                <div class = "text-bottom-left-body">
+                                    {{this.$store.state.checkedproduct.allergenic}}Allergenic
+                                </div>
+                            </div>
+                            <div class = "text-bottom-right">
+                                <div class = "text-like">
+                                    <div class = "text-like-header">
+                                        <i class="far fa-heart fa-bold fa-lg" style= "margin-right:10px;"></i>Like &nbsp;
+                                    </div>
+                                    <div class = "text-like-body">
+                                        {{ this.$store.state.checkedproduct.likeCount }}10
+                                    </div>
+                                </div>
+                                <div class = "text-review">
+                                    <div class = "text-review-header" style = "margin-left : 2px;">
+                                        <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>Review &nbsp;
+                                    </div>
+                                    <div class = "text-review-body">
+                                        {{this.$store.state.checkedproduct.review}}10
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <div class = "item-chart">
             <div class = "chart-header">
                 Nutrient Percent
@@ -59,28 +77,33 @@
             </div>
         </div>
         <div class = "like-button">
-            <!-- <img class = "like-img" src="https://i.postimg.cc/5NwyxMCw/thumb-gray.png" alt="iamge"> -->
-            <b-img class = "like-img"  @click="SendLike" src="https://i.postimg.cc/5NwyxMCw/thumb-gray.png" alt="iamge"/>
+            <b-img class = "like-img" :src="unlikeimage" @click="SendLike" alt="iamge" v-if="this.imageChange == true"/>
+            <b-img class = "like-img" :src="likeimage" @click="SendLike" alt="iamge" v-else/>
         </div>
     </div>
+
 </template>
 
-<script> 
+<script>
 import ChartModule from '../common/Chartmodule.vue';
 import axios from 'axios';
 
 export default {
    data(){
        return {
+            likeimage : "https://i.postimg.cc/bJ171W1N/thumb.png",
+            unlikeimage : "https://i.postimg.cc/5NwyxMCw/thumb-gray.png",
+            imageChange : true,
+
             information : [],
             like : false,
             model : [],
+
             productNameRoot : [],
             productIDRoot : [],
        }
    },
-   beforeCreate(){
-   },   
+   
    created() {
 
         this.productNameRoot = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1));
@@ -106,9 +129,11 @@ export default {
    
    methods : {
         SendLike() {
+            this.imageChange = !this.imageChange;
+
             if(this.like === false)
                 this.like = true;
-           else
+            else
                this.like = false;
 
 
@@ -126,85 +151,99 @@ export default {
 </script>
 
 <style scoped>
-    .item-main {
-        margin-top : 30px;
-        width : 80%;
+    .product-container {
+        width : 70%;
         display : block;
-        margin-left : auto;
-        margin-right : auto;
+        margin : 0 auto;
     }
-    /* //////////////////////////////// */
-    .item-image-section , .item-text-section {
-        display : inline-block;
-    }
-    .item-image-section {
-        width : 30%;
-        height : 100%;
+    .information-container {
         background-color : white;
+    }
+    .product-header {
+        width : 60%;
+        color : white;
+        background-color: #FF3820;
+        border-radius : 0 15px 15px 0;
+        padding : 20px 10px 20px 10px;
+        text-align : center;
+        font-size : 2rem;
+        font-weight: bold;
+    }
+    /* ///////////////header//////////////////// */
+    .product-body-section {
+        display : flex;
+    }
+    .product-body-section-left {
+        width : 35%;
+        margin : 0;
+        align-items : center;
+        padding : 20px;
+    }
+    .product-body-section-right {
+        width : 65%;
+        margin : 0;
+        font-size : 1rem;
+    }
+    .image-section {
+        /* width : 350px; */
+        margin : 0 auto;
     }
     .item-img {
-        vertical-align : top;
-        max-width : 100%;
-        /* height : auto; */
+        vertical-align: top;
     }
+    /* ///////////////image///////////////////////// */
 
-    /* //////////////////////////////////////////// */
-    .item-text-section {
-        width : 70%;
-        vertical-align: top;
-        background-color : white;
+    .text-section {
+        padding : 20px;
+        vertical-align: middle;
     }
-    .item-text-header {
-        /* width : 80%; */
-        background-color : #FF3820;
-        text-align : center;
-        font-size : 1.6rem;
-        font-weight: bold;
-        color : white;
-        padding : 10px 8px 10px 8px;
-        border-radius : 0 15px 15px 0;
+    .text-top { 
+        margin-bottom : 20px;
     }
-    .item-text-main i {
-        margin-right : 4px;
-    }
-    .item-text-main-left , .item-text-main-right {
+    .text-top-left, .text-bottom-left {
         display : inline-block;
-        padding : 10px 15px 10px 15px;
-        font-size : 1.2rem;
-    }
-    .item-text-main-left {
-        width : 50%;
-    }
-    .left-main-nutrient {
-        margin-bottom : 15px;
-        font-weight: bold;
-    }
-    .left-main-allerginic {
-        font-weight: bold;
-    }
-    .item-text-main-right {
-        width : 50%;
+        width : 45%;
+        margin-right : 5%;
         vertical-align: top;
     }
-    .information-like , .information-review{ 
+    .text-top-right, .text-bottom-right {
+        display : inline-block;
+        width : 45%;
+        vertical-align: top;
+    }
+    .text-top-left-header, .text-top-right-header , .text-bottom-left-header , .text-bottom-right-header{
+        font-size : 1.2rem;
         font-weight: bold;
     }
-    
-    .information-item {
-        font-weight: 400;
+    .text-top-left-body, .text-bottom-left-body {
+        font-size : 1rem;
+        font-weight: 500;
+        margin-left : 35px;
     }
-    .right-main-comment {
+    .text-top-right-body {
+        font-size : 1rem;
+        font-weight: 500;
+        margin-left : 35px;
+    }
+    .text-like {
+        margin-bottom : 10px;
+    }
+    .text-like-header , .text-review-header {
+        display : inline-block;
+        margin-right : 3px;
+        font-size : 1.2rem;
         font-weight: bold;
+    }
+    .text-like-body , .text-review-body {
+        display : inline-block;
+        margin-right : 3px;
+        font-size : 1rem;
     }
     .information-p {
-        margin-top : 10px; 
-        font-weight : 300;
-        padding : 0 0 0 32px;
+        margin-bottom : 2px;
     }
-    .information-p:nth-last-child(1){
-        margin-left : 5px;
-    }
-/* /////////////////////////////////////// */
+    /* /////////////////////text//////////////// */
+
     .item-chart {
         width : 60%;
         display : block;
@@ -216,8 +255,7 @@ export default {
         font-weight: 900;
         margin-bottom : 30px;
     }
-
-/* //////////////////////////////////////// */
+    /* ///////////////////////chart/////////////// */
     .like-button {
         display : block;
         width : 50%;
@@ -229,31 +267,32 @@ export default {
         display : block;
         margin : 0 auto 30px auto;
     }
-    .like-btn:hover {
-        color : black;
-    }
-    
-    
-/* //////////////////////////////////////// */
-    @media(max-width : 1000px) {
-        .item-chart {
+    /* /////////////////////////button/////////////// */
+    @media(max-width : 900px) {
+        
+        .product-body-section {
+            display : block;
+        }
+        .product-body-section-right {
             width : 80%;
+            display : block;
+            margin : 0 auto;
+        }
+        .product-body-section-left {
+            width : 260px;
+            display : block;
+            margin : 10px auto 0 auto;
+        }
+        .product-header {
+            width : 100%;
+            border-radius : 0 0 0 0;
+            padding : 10px 5px 10px 5px;
+    }
+        .item-chart {
+            width : 90%;
         }
     }
     @media (max-width : 700px) {
-        .item-image-section , .item-text-section {
-            display : block;
-        }
-        .item-image-section {
-            width : 40%;
-        }
-        .item-text-section {
-            width : 100%;
-        }
-        .item-text-header {
-            width : 60%;
-            font-size : 1.3rem;
-        }
         .item-chart {
             width : 100%;
         }
@@ -262,14 +301,15 @@ export default {
         }
     }
     @media (max-width : 520px) {
-        .item-image-section {
-            width : 100%;
+        .product-container {
+            width : 90%;
         }
-        .item-img {
-            width : 100%;
+        .product-body-section-right {
+            width : 90%;
         }
-        .item-text-main-left , .item-text-main-right {
-            font-size : 0.9rem;
+        .text-section {
+            padding : 0;
+            margin-bottom : 20px;
         }
         .item-chart {
             margin : 30px auto 30px auto;
@@ -278,6 +318,5 @@ export default {
             font-size : 1.3em;
         }
         
-    }    
+    }
 </style>
-

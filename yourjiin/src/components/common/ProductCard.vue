@@ -1,30 +1,43 @@
 <template>
     <div class = "product-container">
-        <div class = "product-item" >
-            <div class = "product-align" v-for="item in this.$store.state.products" :key="item.id">
-                <div class = "product">
-                    <div class = "product-left-section">
-                        <img class = "product-img" :src="item.url" fluid alt="image"/>
-                    </div>
-                    <div class = "product-right-section">
-                        <span class = "product-text">
-                            <div class = "text-header">
-                                <router-link :to="{ name: 'item', params: { item : item.productName }}">
-                                    <p @click="send_data(item)">{{item.productName}}</p>
-                                </router-link>  
+        <div class = "product-item">
+            <div class  = "product-aligns" v-for="item in this.$store.state.products" :key="item.id">
+                <b-card class = "product-image" no-body :img-src="item.url"
+                img-alt = "Image" img-top fluid style="border-radius : 0 0 20px 20px;"> 
+                    <b-card-body class = "product-body-section">
+                        <div class = "product-title">
+                            <router-link :to="{ name: 'item', params: { item : item.productName }}">
+                                <p @click="send_data(item)">{{item.productName}}</p>
+                            </router-link>
+                        </div>
+                        <div class = "product-body">
+                            <div class = "product-descript">
+                                <div class = "descript-title">
+                                    <span class = "descript-icon"><i class="far fa-question-circle fa-bold fa-lg" style="margin-right : 10px;"></i></span>
+                                    <span class = "descript-text">Descript</span>
+                                </div>
+                                <div class = "descript-section">
+                                    <span>{{item.productTaste}}</span>
+                                </div>
                             </div>
-                            <div class = "text-main">
-                                <p style="font-weight : bold;"> DESCRIPT</p>
-                                <p>{{item.productTaste}}</p>
-                                <p> <i class="far fa-heart fa-bold fa-lg" style="margin-right : 10px;"></i> 
-                                        LIKE &nbsp; <span class = "text-item">{{item.likeCount}}</span></p>
-                                <p> <i class="far fa-user fa-bold fa-lg" style="margin-right : 10px;"></i> REVIEW &nbsp; 
-                                <span class = "text-item">{{item.review}}</span></p>  
+                            <div class = "product-information">
+                                <div class = "product-left-section">
+                                    <div class = "like">
+                                        <span class = "like-icon"><i class="far fa-heart fa-bold fa-lg" style="margin-right : 10px;"></i></span>
+                                        <span class = "like-text" style = "font-weight : bold;">Like &nbsp;</span>
+                                        <span class = "like-count">{{item.likeCount}}</span>
+                                    </div>
+                                    <div class = "review">
+                                        <span class = "review-icon"><i class="far fa-user fa-bold fa-lg" style="margin-right : 10px; margin-left : 1px;"></span>
+                                        <span class = "review-text" style = "font-weight : bold;">Review &nbsp;</span>
+                                        <span class = "review-count">{{item.review}}</span>
+                                    </div>
+                                </div>  
                             </div>
-                        </span>
-                    </div>
-                </div>  
-            </div> 
+                        </div>
+                    </b-card-body>
+                </b-card>
+            </div>
         </div>
     </div>
 </template>
@@ -34,7 +47,6 @@ import { mapMutations } from 'vuex';
 import axios from 'axios';
 
 export default {
-   
     methods : {
         ...mapMutations({
             send_data : 'Send_data'
@@ -53,6 +65,7 @@ export default {
         this.item = this.$store.state.selected;
     },
     mounted() {
+        
         const root = 'product/information';
         axios.get(`${root}/${this.param}/${this.item}`)
             .then(response =>
@@ -64,113 +77,86 @@ export default {
 
 <style scoped>
     .product-item {
-        width : 80%;
+        width : 70%;
         display : block;
-        margin-left : auto;
+        margin-left: auto;
         margin-right : auto;
     }
-    .product-align { 
+    .product-aligns { 
         display : inline-block;
-        width : 100%;        
+        width : 27%;   
+        margin-left : 3%;
+        margin-right : 3%;
+        margin-bottom : 20px;
     }
-    /* //////////////////////////////// */
     
-    .product {
-        display : flex;
-        margin-bottom : 30px;
-        width : 100%;
-        min-height : 200px;
-        /* background-color: white; */
-        
+    .product-body-section {
+        padding : 0 0 0 0;
     }
-    .product-left-section { 
-        width : 35%;
-        /* min-height : inherit; */
-    }
-    .product-right-section {
-        width : 65%;
-        background-color: white;
-        border-radius : 0 15px 0 0;
-    }
-    .product-img {
-        vertical-align : top;
-        width : 100%;
-        height : 100%;
-        object-fit : contain;
-    }
-    .text-header {
+    .product-title{
         background-color : #FF3820;
         text-align : center;
-        font-size : 1.6rem;
+        font-size : 1.2rem;
         font-weight: bold;
         padding : 10px 8px 10px 8px;
-        border-radius : 0 15px 15px 0; 
     }
-    .text-header a{
+    .product-title a{
         color : white;
-        text-decoration: none;
+        text-decoration: none;   
     }
-    .text-header a:hover {
+    .product-title a:hover{
         color : black;
     }
-    .text-header p , .text-main p{
+    .product-title p {
         margin : 0;
     }
-    .text-main {
-        /* background-color: white; */
-        font-size : 1rem;
+    /* ////////////////////////////////////////////// */
+    .product-body {
+        background-color: white;
         padding : 20px 10px 20px 20px;
+        border-radius: 0 0 15px 15px;
     }
-    .text-main p:nth-child(1), .text-main p:nth-child(2) {
-        margin-bottom : 2px;
-        line-height: 90%;
+    .product-descript {
+        margin-bottom : 10px;
+        min-height : 60px;
     }
-    /* .text-main p:nth-last-child(1), .text-main p:nth-last-child(2), .text-main p:nth-last-child(4) {
-        font-weight : bold;
-        margin-left : 2px;
-    } */
-    .text-main p:nth-last-child(3) {
-        margin-top : 10px;
-    }
-    .text-main p:nth-last-child(2) {
-        margin-top : 30px;
+    .descript-title{
+        font-size : 1rem;
         font-weight: bold;
     }
-    .text-main p:nth-last-child(1) {
-        margin-top : 10px;
-        margin-left : 1px;
+    .product-information {
+        margin-top : 5px;
+    }
+    .like , .review {
+        font-size : 1rem;
+        margin-bottom : 10px;
+    }
+    .like-text .review-text {
         font-weight: bold;
     }
-    .text-item {
-        font-weight: 400;
+    .like-count .review-count {
+        font-weight: 300;
     }
 
-    
-
-
-/* /////////////////////////////////////// */
-    
-    @media (max-width : 700px) {
+/* /////////////////////////////////////////////// */
+    @media (max-width : 1100px) {
+        .product-item {
+            width : 80%;
+        }
+        .product-aligns { 
+            width : 40%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+    }
+    @media (max-width : 500px) {
         .product-item {
             width : 90%;
         }
-        .product-align {
-            display : block;
-            width : 100%;
-            margin-left : auto;
-            margin-right : auto;
-        }
-        .product-img {
-            width : 100%;
-            height : 100%;
-            object-fit : contain;  
-        } 
-        .text-header {
-            font-size : 1.2rem;
-        }
-        .text-main {
-            font-size : 1rem;
+        .product-aligns { 
+            width : 80%;   
+            margin-left : 5%;
+            margin-right : 5%;
         }
     }
-    
 </style>
