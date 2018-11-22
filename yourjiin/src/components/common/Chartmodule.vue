@@ -16,7 +16,7 @@ export default {
     mounted() {
 
         setTimeout(() => {
-            console.log(this.$store.state.charts);
+            // console.log(this.$store.state.charts);
             new this.ChartJS(this.$refs.myChart, {
                 // The type of chart we want to create
                 type: 'pie',

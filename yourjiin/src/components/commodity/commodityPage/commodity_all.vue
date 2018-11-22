@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ProductCard from '../../common/ProductCard.vue';
+import ProductCard from '../../common/ProductCard2.vue';
 
 export default {
     components : {

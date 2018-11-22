@@ -71,9 +71,7 @@ export default {
     }
     .product-align { 
         display : inline-block;
-        width : 100%;
-        /* padding : 10px 15px 10px 15px; */
-        
+        width : 100%;        
     }
     /* //////////////////////////////// */
     

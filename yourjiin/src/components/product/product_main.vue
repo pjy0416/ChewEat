@@ -4,21 +4,21 @@
             <div class = "item-align">
                 <div class = "item-image-section">
                     <!-- <b-img class = "item-img" :src="this.information.url" fluid alt="image"/> -->
-                    <b-img class = "item-img" src="https://i.postimg.cc/mrgQqF8W/Chew-Eat-favor1.jpg" alt="image"/>
+                    <b-img class = "item-img" src="https://i.postimg.cc/D0MHn7DT/600-600.jpg" fluid alt="image"/>
                 </div>
                 <div class = "item-text-section">
                     <div class = "item-text-header">
-                        {{information.productName}}
+                        {{this.$store.state.checkedproduct.productName}}
                     </div>
                     <div class = "item-text-main">
                         <div class = "item-text-main-left">
                             <div class = "left-main-nutrient">
                                 <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
-                                <p class = "information-p">{{information.productMatrials}}</p>
+                                <p class = "information-p">{{this.$store.state.checkedproduct.productMatrials}}</p>
                             </div>
                             <div class = "left-main-allerginic">
                                 <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
-                                <p class = "information-p">{{information.allergenic}}</p>
+                                <p class = "information-p">{{this.$store.state.checkedproduct.allergenic}}</p>
                             </div>
                         </div>
                         <div class = "item-text-main-right">
@@ -27,10 +27,7 @@
                                     <p style="margin-bottom : 20px;"><i class="far fa-heart fa-bold fa-lg" style="margin-right:10px;" ></i>
                                         Like &nbsp;
                                         <span class = "information-item"  >
-                                            {{ information.likeCount }}
-                                        </span>
-                                        <span class = "like-btn" @click="SendLike">
-                                            <i class="fas fa-thumbs-up fa-bold fa-lg"  style = "margin-left : 10px;"></i>
+                                            {{ this.$store.state.checkedproduct.likeCount }}
                                         </span>
                                     </p>
                                 </span>
@@ -38,12 +35,14 @@
                                     <p style="margin-left : 2px; margin-bottom : 20px;" >
                                         <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>
                                         Review &nbsp;
-                                        <span class = "information-item">{{information.review}}</span></p>
+                                        <span class = "information-item">{{this.$store.state.checkedproduct.review}}</span></p>
                                 </span>
                             </div>
                             <div class = "right-main-comment">
                                 <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Comment 
-                                <p class = "information-p">{{information.tag}}</p>
+                                <p class = "information-p">{{this.$store.state.checkedproduct.overWeight}}</p>
+                                <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}</p>
+                                <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}</p>
                             </div>
                         </div>
                     </div>  
@@ -59,6 +58,10 @@
                 <chart-module class = "item-chart"></chart-module>
             </div>
         </div>
+        <div class = "like-button">
+            <!-- <img class = "like-img" src="https://i.postimg.cc/5NwyxMCw/thumb-gray.png" alt="iamge"> -->
+            <b-img class = "like-img"  @click="SendLike" src="https://i.postimg.cc/5NwyxMCw/thumb-gray.png" alt="iamge"/>
+        </div>
     </div>
 </template>
 
@@ -71,30 +74,47 @@ export default {
        return {
             information : [],
             like : false,
+            model : [],
+            root : [],
+            root2 : [],
        }
    },
    created() {
-       this.information = this.$store.state.information;
+    //    this.information = this.$store.state.information;
+        this.root = this.$store.state.information.productName;
+        this.root2 = this.$store.state.information.productID;
 
-       this.root = this.$store.state.information.productName;
+        // console.log(this.$store.state.products);
+        // console.log(this.$store.state.information);
+
+        axios.post(`./information/review/${this.root}/${this.root2}`, {
+            productID : this.root2
+        })
+            .then( response => {
+                this.$store.state.checkedproduct = response.data.product;
+            })
+            .catch( error => {
+                console.log(error);
+            });
+        
         axios.get(`./information/review/${this.root}`)
             .then(response =>
                 (this.$store.state.charts = response.data.nutrition))
-            .catch()
+            .catch();
    },
    methods : {
        SendLike() {
             if(this.like == false){
                 this.like = true;
-                axios.post(`./information/review/likeCount/product/${this.information.productID}`, {
-                    productID : this.information.productID,
+                axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
+                    productID : this.$store.state.information.productID,
                     likeCount : this.like
                 })
            }
            else{
                this.like = false;
-               axios.post(`./information/review/likeCount/product/${this.information.productID}`, {
-                    productID : this.information.productID,
+               axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {
+                    productID : this.$store.state.information.productID,
                     likeCount : this.like
                 })
            }   
@@ -120,12 +140,13 @@ export default {
     }
     .item-image-section {
         width : 30%;
+        height : 100%;
         background-color : white;
     }
     .item-img {
-        vertical-align : bottom;
+        vertical-align : top;
         max-width : 100%;
-        height : auto;
+        /* height : auto; */
     }
 
     /* //////////////////////////////////////////// */
@@ -188,7 +209,7 @@ export default {
     .item-chart {
         width : 60%;
         display : block;
-        margin : 50px auto 70px auto;
+        margin : 50px auto 40px auto;
     }
     .chart-header {
         text-align: center;
@@ -198,10 +219,16 @@ export default {
     }
 
 /* //////////////////////////////////////// */
-    .like-btn {
-        color : #FF3820;
-        margin-right : 10px;
-        width : 2rem;
+    .like-button {
+        display : block;
+        width : 50%;
+        margin-left : auto;
+        margin-right : auto;
+    }
+    .like-img {
+        max-width : 7rem;
+        display : block;
+        margin : 0 auto 30px auto;
     }
     .like-btn:hover {
         color : black;
