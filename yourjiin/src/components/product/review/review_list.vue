@@ -3,11 +3,11 @@
         <!-- {{this.$store.state.reviewTest}} -->
         <transition-group name = "list" tag = "ul">
             <!-- DB에서 가져온 정보를 바로 뿌려주는 부분 -->
-            <li class = "shadow" v-for="(review, index) in this.$store.state.reviewTest" :key="review.reviewID">
+            <li class = "shadow" v-for="review in this.$store.state.reviewTest" :key="review.reviewID">
                 {{review.contents}}
                 <div class = "like-button">
                     <span class = "like-count" @click="review.likeCount++" >{{review.likeCount}}</span>
-                    <span class = "like-btn" @click="SendLike(review.reviewID, index)"><i class="fas fa-heart fa-bold fa-lg" ></i></span>
+                    <span class = "like-btn" @click="SendLike(review.reviewID)"><i class="fas fa-heart fa-bold fa-lg" ></i></span>
                 </div>
             </li>
         </transition-group>
@@ -31,47 +31,31 @@ export default {
     data() {
         return {
             like : false,
+            reviewRoot : [],
         }
     },
     created(){
-            
+
         this.removeAll();
     },
-    beforMount(){
-        
-    },
     methods : {
-        handler(){
-           const arr = [];
-
-            if(sessionStorage.length > 0){
-                for(let i=0; i<sessionStorage.length; i++){
-                    arr.push(JSON.parse(sessionStorage.getItem(sessionStorage.value(i))));
-                }
-            }
-            return arr[sessionStorage.length-1];
-            console.log(arr);
-            alert('Fuck');
-       },
         removeAll(){
             localStorage.clear();
             this.$store.state.reviews = [];
         },
-        SendLike(reviewID, index) {
+        SendLike(reviewID) {
             if(this.like == false){
                 this.like = true;
                 axios.post(`./information/review/likeCount/review/${reviewID}`, {
                     reviewID : reviewID,
                     likeCount : this.like,
-                    index : index
                 })
            }
            else{
                this.like = false;
                axios.post(`./information/review/likeCount/review/${reviewID}`, {
                     reviewID : reviewID,
-                    likeCount : this.like,
-                    index : index
+                    likeCount : this.like
                 })
            }   
        },
