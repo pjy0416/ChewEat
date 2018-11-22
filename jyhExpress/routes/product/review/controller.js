@@ -1,4 +1,4 @@
-import {nutritionQuery} from "../../../database/search/query";
+import {nutritionQuery, reviewLikeChange} from "../../../database/search/query";
 import {reviewQuery} from "../../../database/search/query";
 import {reviewInsertQuery} from "../../../database/search/query";
 import {productLikeChange} from "../../../database/search/query";
@@ -26,7 +26,7 @@ export const reviewInsertCall = async(req, res) =>{
 
 export const productLikeChangeCall = async(req, res) => {
     let productID = req.body.productID;   // 넘어오는거에 따라 다르게 받기
-    let isLike = req.body.isLike;        // like +- 여부 변수
+    let isLike = req.body.likeCount;        // like +- 여부 변수
 
     let execQuery = await productLikeChange(productID, isLike);
 
@@ -39,10 +39,9 @@ export const productLikeChangeCall = async(req, res) => {
 
 export const reviewLikeChangeCall = async(req, res) => {
     let reviewID = req.body.reviewID;   // 넘어오는거에 따라 다르게 받기
-    let isLike = req.body.isLike;        // like +- 여부 변수
+    let isLike = req.body.likeCount;        // like +- 여부 변수
 
     let execQuery = await reviewLikeChange(reviewID, isLike);
-
     if(execQuery === true){
         res.send(200,{message:"success"});
     } else{
