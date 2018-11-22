@@ -61,6 +61,7 @@ export default {
                 });
 
                 this.model = '';
+
             }
             else {
                 this.showModal = !this.showModal;
