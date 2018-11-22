@@ -1,7 +1,7 @@
 import Chart from 'chart.js'
 
 export default {
-  install(Vue, ) {
+  install(Vue) {
     Vue.prototype.ChartJS = Chart;
   }
 }
