@@ -3,8 +3,8 @@
         <div class = "item-main">
             <div class = "item-align">
                 <div class = "item-image-section">
-                    <!-- <b-img class = "item-img" :src="this.information.url" fluid alt="image"/> -->
-                    <b-img class = "item-img" src="https://i.postimg.cc/D0MHn7DT/600-600.jpg" fluid alt="image"/>
+                    <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/>
+                    <!-- <b-img class = "item-img" src="https://i.postimg.cc/D0MHn7DT/600-600.jpg" fluid alt="image"/> -->
                 </div>
                 <div class = "item-text-section">
                     <div class = "item-text-header">
@@ -79,13 +79,12 @@ export default {
             root2 : [],
        }
    },
+   beforeCreate(){
+   },   
    created() {
-    //    this.information = this.$store.state.information;
-        this.root = this.$store.state.information.productName;
-        this.root2 = this.$store.state.information.productID;
 
-        // console.log(this.$store.state.products);
-        // console.log(this.$store.state.information);
+        this.root = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1));
+        this.root2 = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-2));
 
         axios.post(`./information/review/${this.root}/${this.root2}`, {
             productID : this.root2
@@ -101,9 +100,12 @@ export default {
             .then(response =>
                 (this.$store.state.charts = response.data.nutrition))
             .catch();
+
+        
    },
+   
    methods : {
-       SendLike() {
+        SendLike() {
             if(this.like == false){
                 this.like = true;
                 axios.post(`./information/review/likeCount/product/${this.$store.state.information.productID}`, {

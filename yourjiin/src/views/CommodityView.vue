@@ -20,6 +20,9 @@ import ProductSection from '../components/commodity/productsection.vue';
 import Logo from '../components/common/logo.vue';
 
 export default {
+    created(){
+        sessionStorage.clear();
+    },
     components : {
         Commodity,
         ProductSection,

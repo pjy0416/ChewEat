@@ -33,7 +33,26 @@ export default {
             like : false,
         }
     },
+    created(){
+            
+        this.removeAll();
+    },
+    beforMount(){
+        
+    },
     methods : {
+        handler(){
+           const arr = [];
+
+            if(sessionStorage.length > 0){
+                for(let i=0; i<sessionStorage.length; i++){
+                    arr.push(JSON.parse(sessionStorage.getItem(sessionStorage.value(i))));
+                }
+            }
+            return arr[sessionStorage.length-1];
+            console.log(arr);
+            alert('Fuck');
+       },
         removeAll(){
             localStorage.clear();
             this.$store.state.reviews = [];
@@ -62,9 +81,7 @@ export default {
        }
         
     },
-    created(){
-        this.removeAll();
-    },
+    
     computed : {
         ...mapGetters(['putreviews'])
     }

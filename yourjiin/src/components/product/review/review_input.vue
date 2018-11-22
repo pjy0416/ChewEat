@@ -37,9 +37,7 @@ export default {
         Modal,
         // ReviewList
     },
-    created(){
-        
-    },
+
     methods : {
         addTodo(){
             if(this.model !== ''){
