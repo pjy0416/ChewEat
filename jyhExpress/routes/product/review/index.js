@@ -1,7 +1,7 @@
 import express from 'express';
 import {detailPageCall} from "./controller";
 import {reviewInsertCall} from "./controller";
-import {productLikeChangeCall, reviewLikeChangCall} from "./controller";
+import {productLikeChangeCall, reviewLikeChangeCall} from "./controller";
 
 let router = express.Router();
 
@@ -17,7 +17,7 @@ router.post('/addReview/:productID', (req, res) => {
 router.post('/likeCount/:formType/:formID', (req, res) => {
     if(req.params.formType === 'product') {
         productLikeChangeCall(req, res);
-    } else if (req.params.formID === 'review') {
+    } else if (req.params.formType === 'review') {
         reviewLikeChangeCall(req, res);
     }
 });
