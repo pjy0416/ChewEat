@@ -77,16 +77,16 @@ export default {
 
 <style scoped>
     .product-item {
-        width : 90%;
+        width : 70%;
         display : block;
         margin-left: auto;
         margin-right : auto;
     }
     .product-aligns { 
         display : inline-block;
-        width : 40%;   
-        margin-left : 5%;
-        margin-right : 5%;
+        width : 27%;   
+        margin-left : 3%;
+        margin-right : 2.5%;
         margin-bottom : 20px;
     }
     
@@ -118,7 +118,6 @@ export default {
     }
     .product-descript {
         margin-bottom : 10px;
-        min-height : 60px;
     }
     .descript-title{
         font-size : 1rem;
@@ -136,5 +135,25 @@ export default {
     }
     .like-count .review-count {
         font-weight: 300;
+    }
+    @media (max-width : 1100px) {
+        .product-item {
+            width : 80%;
+        }
+        .product-aligns { 
+            width : 40%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+    }
+    @media (max-width : 500px) {
+        .product-item {
+            width : 90%;
+        }
+        .product-aligns { 
+            width : 80%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
     }
 </style>

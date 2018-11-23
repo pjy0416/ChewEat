@@ -2,7 +2,7 @@ import {connect, transaction} from '../db';
 
 //1. 카테고리 별 All 검색
 export const searchAll = connect (async (con, parameter) => {
-    let query = "SELECT DISTINCT a.* FROM PRODUCT a, CATEGORY b WHERE b.DEPTHONE = ? and b.CATEGORYID = a.CATEGORYID ";
+    let query = "SELECT DISTINCT a.* FROM product a, category b WHERE b.depthOne = ? and b.categoryID = a.categoryID ";
     const result = await con.query(query, parameter);
 
     return result;
@@ -10,28 +10,48 @@ export const searchAll = connect (async (con, parameter) => {
 
 //2. 카테고리 별 한가지 맛 검색
 export const searchTaste = connect (async (con, parameter1, parameter2) => {
-    let query = "SELECT DISTINCT a.* FROM PRODUCT a, CATEGORY b WHERE b.DEPTHONE =? and b.DEPTHTWO = ? and b.CATEGORYID = a.CATEGORYID ";
+    let query = "SELECT DISTINCT a.* FROM product a, category b WHERE b.depthOne =? and b.depthTwo= ? and b.categoryID = a.categoryID ";
     const result = await con.query(query, [parameter1, parameter2]);
 
     return result;
 });
 
-//3. detail page에서 영양정보 및 코멘트
-export const detailQuery = connect (async (con, param) => {
-    let query = "SELECT a.*, b.* FROM cheweat.PRODUCTNUTRITION a, cheweat.REVIEW b WHERE a.PRODUCTID =? and a.PRODUCTID = b.PRODUCTID ";
+//3. Product detail page 상단 정보
+export const productQuery = connect(async (con, param) => {
+    let query = "SELECT URL as url, productName  as productName, productMatrials as productMatrials, allergenic as allergenic, likeCount as likeCount, review as review FROM product WHERE productID = ? ";
+    const result = await con.query(query, [param]);
+
+    return result;
+});
+
+export const productKcalQuery = connect(async (con, param) => {
+    let query = "SELECT overallWeight, perWeight, kcal FROM productnutrition WHERE productID = ? ";
     const result = await con.query(query, param);
 
     return result;
 });
 
+//3-sub. Product detail page (productID ~> CategoryID ~> depth 가져오기)
+export const getCategoies = connect(async (con, param) => {
+   let idQuery =  "SELECT categoryID AS categoryID FROM product WHERE productID = ? ";
+   let categoryQuery = "SELECT depthOne, depthTwo FROM category WHERE categoryID = ? ";
+
+   const fetch = await con.query(idQuery, param);
+   let categoryId = fetch[0].categoryID;
+
+   const result = await con.query(categoryQuery, categoryId);
+
+   return result;
+});
+
 //3-1. Product detail page (Nutrition Information) 상세 페이지 영양정보 (6가지만)
 export const nutritionQuery = connect(async (con, param) => {
-    let tmpQuery = "SELECT PRODUCTID FROM PRODUCT WHERE PRODUCTNAME = ? ";
-    let query = "SELECT NATRIUM, CARBOHYDRATE, SUGARS, FAT, CHOLESTEROL, PROTEIN  FROM PRODUCTNUTRITION WHERE PRODUCTID = ? ";
+    let tmpQuery = "SELECT productID FROM product WHERE productName = ? ";
+    let query = "SELECT natrium, carbohydrate, sugars, fat, cholesterol, protein FROM productnutrition WHERE productID = ? ";
 
     const fetch = await con.query(tmpQuery, param);
-    let productID = fetch[0].PRODUCTID;
-    console.log(productID);
+    let productID = fetch[0].productID;
+
     const result = await con.query(query, [productID]);
 
     return result;
@@ -39,11 +59,11 @@ export const nutritionQuery = connect(async (con, param) => {
 
 //4. detail page comment .
 export const reviewQuery = connect(async (con, param) => {
-    let tmpQuery = "SELECT PRODUCTID FROM PRODUCT WHERE PRODUCTNAME = ? ";
-    let query = "SELECT * FROM REVIEW WHERE PRODUCTID = ? ";
+    let tmpQuery = "SELECT productID FROM product WHERE productName = ? ";
+    let query = "SELECT * FROM review WHERE productID = ? ";
 
     const fetch = await con.query(tmpQuery, param);
-    let productID = fetch[0].PRODUCTID;
+    let productID = fetch[0].productID;
 
     const result = await con.query(query, productID);
 
@@ -52,9 +72,9 @@ export const reviewQuery = connect(async (con, param) => {
 
 //5. comment 작성 시 데이터 베이스에 update
 export const reviewInsertQuery = transaction(async (con, param1, param2) => {
-    let fetchQuery = "SELECT COUNT(reviewID) AS reviewID FROM REVIEW ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let insertQuery = "INSERT INTO REVIEW (reviewID, productID, contents) values (?, ?, ?) ";                     // 받아온 count number를 review에 대입
-    let syncQuery = "UPDATE PRODUCT SET REVIEW  = (SELECT COUNT(PRODUCTID) FROM REVIEW WHERE PRODUCTID = ?) WHERE PRODUCTID = ? ";
+    let fetchQuery = "SELECT COUNT(reviewID) AS reviewID FROM review ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
+    let insertQuery = "INSERT INTO review (reviewID, productID, contents) values (?, ?, ?) ";                     // 받아온 count number를 review에 대입
+    let syncQuery = "UPDATE product SET review  = (SELECT COUNT(productID) FROM review WHERE productID = ?) WHERE productID = ? ";
 
     const fetch = await con.query(fetchQuery, []);
     let commentSize = fetch[0].reviewID+1;
@@ -70,99 +90,37 @@ export const reviewInsertQuery = transaction(async (con, param1, param2) => {
 
 // 제품 리뷰 달릴 때 카운팅 ~> product 테이블의 review(숫자)에 저장
 export const productLikeChange = transaction(async (con, param1, param2) => {
-    let fetchQuery = "SELECT likeCount FROM PRODUCT WHERE PRODUCTID = ? ";
-    let updateQuery = "UPDATE PRODUCT SET likeCount =? WHERE PRODUCTID = ? ";
+    let fetchQuery = "SELECT likeCount FROM product WHERE productID = ? ";
+    let updateQuery = "UPDATE product SET likeCount =? WHERE productID = ? ";
 
-    const fetch = await con.query(fetchQuery, param1);
+    const fetch = await con.query(fetchQuery, [param1]);
 
     let likeCount = fetch[0].likeCount;
-    console.log(likeCount);
-    if(param2 === 'true') {
+    if(param2 === true) {
         likeCount += 1;
     } else {
-        if(likeCount === 0) {
-            likeCount =0;
-        }else {
-            likeCount -= 1;
-        }
+        likeCount -=1;
     }
-    console.log(likeCount);
     await con.query(updateQuery, [likeCount, param1]);
-
     return true;
 });
 
 export const reviewLikeChange = transaction(async (con, param1, param2) => {
-    let fetchQuery = "SELECT likeCount FROM REVIEW WHERE REVIEWID = ? ";
-    let updateQuery = "UPDATE REVIEW SET likeCount =? WHERE REVIEWID = ? ";
+    let fetchQuery = "SELECT likeCount FROM review WHERE reviewID = ? ";
+    let updateQuery = "UPDATE review SET likeCount =? WHERE reviewID = ? ";
 
     const fetch = await con.query(fetchQuery, param1);
     let likeCount = fetch[0].likeCount;
-    if(param2 === 'true') {
+    if(param2 === true) {
         likeCount += 1;
     } else {
-        if(likeCount === 0) {
-            likeCount =0;
-        }else {
-            likeCount -= 1;
-        }
+        likeCount -= 1;
     }
     await con.query(updateQuery, [likeCount, param1]);
 
     return true;
 });
 
-//6. review 좋아요 클릭 시 좋아요 갯수 늘어나게
-export const reviewIncLikeQuery = transaction(async (con, param) => {
-    let fetchQuery = "SELECT likeCount FROM REVIEW WHERE REVIEWID = ? ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let updateQuery = "UPDATE REVIEW SET likeCount = ? WHERE REVIEWID = ? ";                     // 받아온 count number를 review에 대입
-
-    const fetch = await con.query(fetchQuery, param);
-    let increasedNum = fetch[0].likeCount +1;
-
-    const update = await con.query(updateQuery, [increasedNum, param]);
-
-    return update;
-});
-
-//7. review 좋아요 취소 시 좋아요 갯수 줄어들게
-export const reviewDecLikeQuery = transaction(async (con, param) => {
-    let fetchQuery = "SELECT likeCount FROM REVIEW WHERE REVIEWID = ? ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let updateQuery = "UPDATE REVIEW SET likeCount = ? WHERE REVIEWID = ? ";                     // 받아온 count number를 review에 대입
-
-    const fetch = await con.query(fetchQuery, param);
-    let increasedNum = fetch[0].likeCount -1;
-
-    const update = await con.query(updateQuery, [increasedNum, param]);
-
-    return update;
-});
-
-//8. 제품 좋아요 클릭 시 좋아요 갯수 늘어나게
-export const productIncLikeQuery = transaction(async (con, param) => {
-    let fetchQuery = "SELECT likeCount FROM PRODUCT WHERE PRODUCTID = ? ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let updateQuery = "UPDATE PRODUCT SET likeCount = ? WHERE PRODUCTID = ? ";                     // 받아온 count number를 review에 대입
-
-    const fetch = await con.query(fetchQuery, param);
-    let increasedNum = fetch[0].likeCount +1;
-
-    const update = await con.query(updateQuery, [increasedNum, param]);
-
-    return update;
-});
-
-//6. 제품 좋아요 취소 시 좋아요 갯수 줄어들게
-export const productDecLikeQuery = transaction(async (con, param) => {
-    let fetchQuery = "SELECT likeCount FROM PRODUCT WHERE PRODUCTID = ? ";    // comment에서 productID에 해당하는 댓글의 수 (commentID의 수)를 받아온다
-    let updateQuery = "UPDATE PRODUCT SET likeCount = ? WHERE PRODUCTID = ? ";                     // 받아온 count number를 review에 대입
-
-    const fetch = await con.query(fetchQuery, param);
-    let increasedNum = fetch[0].likeCount -1;
-
-    const update = await con.query(updateQuery, [increasedNum, param]);
-
-    return update;
-});
 
 //
 /*
