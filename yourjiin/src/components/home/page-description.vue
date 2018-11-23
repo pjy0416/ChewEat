@@ -12,8 +12,13 @@
                     img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
                 </b-carousel-slide>
                 <b-carousel-slide
+<<<<<<< HEAD
+                    img-src = 'https://i.postimg.cc/brVcmy6t/image-1.jpg'>
+=======
                     img-src = 'https://i.postimg.cc/Zq263KSp/image-1.jpg'>
+>>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                 </b-carousel-slide>
+                
             </b-carousel>
         </div>
     </div>

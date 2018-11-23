@@ -84,9 +84,15 @@ export default {
     }
     .product-aligns { 
         display : inline-block;
+<<<<<<< HEAD
+        width : 27%;   
+        margin-left : 3%;
+        margin-right : 2.5%;
+=======
         width : 40%;   
         margin-left : 5%;
         margin-right : 5%;
+>>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         margin-bottom : 20px;
     }
     
@@ -136,5 +142,25 @@ export default {
     }
     .like-count .review-count {
         font-weight: 300;
+    }
+    @media (max-width : 1100px) {
+        .product-item {
+            width : 80%;
+        }
+        .product-aligns { 
+            width : 40%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+    }
+    @media (max-width : 500px) {
+        .product-item {
+            width : 90%;
+        }
+        .product-aligns { 
+            width : 80%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
     }
 </style>
