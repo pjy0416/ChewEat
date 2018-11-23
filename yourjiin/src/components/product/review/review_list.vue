@@ -15,8 +15,8 @@
             <li class = "shadow" v-for="(putreview) in this.putreviews" :key="putreview.reviewID">
                 {{putreview.review}}
                 <div class = "like-button">
-                    <span class = "like-count" @click="putreview.likeCount++" >{{putreview.likeCount}}</span>
-                    <span class = "like-btn" @click="Backtopage"><i class="fas fa-heart fa-bold fa-lg" ></i></span>
+                    <span class = "like-count" @click="putreview.likeCount" >{{putreview.likeCount}}</span>
+                    <span class = "like-btn"  @click="SendLike(putreview.reviewID)"><i class="fas fa-heart fa-bold fa-lg" ></i></span>
                 </div>
             </li>
         </transition-group>
@@ -59,11 +59,7 @@ export default {
                 })
            }   
        },
-       Backtopage(){
-           alert('You can check this icon after refresh this page');
-           history.back();
-       }
-        
+
     },
     
     computed : {

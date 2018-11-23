@@ -3,13 +3,13 @@
         <div class = "information-container">
             <div class = "product-header-section">
                 <div class = "product-header">
-                    {{this.$store.state.checkedproduct.productName}}
+                    {{this.$store.state.checkedproduct.product.productName}}
                 </div>
             </div>
             <div class = "product-body-section">
                 <div class = "product-body-section-left">
                     <div class = "image-section">
-                        <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/>
+                        <b-img class = "item-img" :src="this.$store.state.checkedproduct.product.url" fluid alt="image"/>
                         <!-- <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/> -->
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                                     <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
                                 </div>
                                 <div class = "text-top-left-body">
-                                    {{this.$store.state.checkedproduct.productMatrials}}
+                                    {{this.$store.state.checkedproduct.product.productMatrials}}
                                 </div>
                             </div>
                             <div class = "text-top-right">
@@ -29,9 +29,9 @@
                                     <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Information
                                 </div>
                                 <div class = "text-top-right-body">
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.overallWeight}}</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}</p>
+                                    <p class = "information-p">Overall Weight : {{this.$store.state.checkedproduct.ingest.overallWeight}}</p>
+                                    <p class = "information-p">Standard Weight : {{this.$store.state.checkedproduct.ingest.perWeight}}</p>
+                                    <p class = "information-p">Kcal per standard : {{this.$store.state.checkedproduct.ingest.kcal}}</p>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                     <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
                                 </div>
                                 <div class = "text-bottom-left-body">
-                                    {{this.$store.state.checkedproduct.allergenic}}
+                                    {{this.$store.state.checkedproduct.product.allergenic}}
                                 </div>
                             </div>
                             <div class = "text-bottom-right">
@@ -50,7 +50,7 @@
                                         <i class="far fa-heart fa-bold fa-lg" style= "margin-right:10px;"></i>Like &nbsp;
                                     </div>
                                     <div class = "text-like-body">
-                                        {{ this.$store.state.checkedproduct.likeCount }}
+                                        {{ this.$store.state.checkedproduct.product.likeCount }}
                                     </div>
                                 </div>
                                 <div class = "text-review">
@@ -58,7 +58,7 @@
                                         <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>Review &nbsp;
                                     </div>
                                     <div class = "text-review-body">
-                                        {{this.$store.state.checkedproduct.review}}
+                                        {{this.$store.state.checkedproduct.product.review}}
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ export default {
                 productID : this.productIDRoot
             })
                 .then( response => {
-                    this.$store.state.checkedproduct = response.data.product;
+                    this.$store.state.checkedproduct = response.data;
                 })
                 .catch( error => {
                     console.log(error);

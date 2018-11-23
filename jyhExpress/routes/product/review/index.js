@@ -1,5 +1,5 @@
 import express from 'express';
-import {detailPageCall} from "./controller";
+import {detailPageCall, productQueryCall} from "./controller";
 import {reviewInsertCall} from "./controller";
 import {productLikeChangeCall, reviewLikeChangeCall} from "./controller";
 
@@ -12,6 +12,12 @@ router.get('/:productName', (req, res) => {
 
 router.post('/addReview/:productID', (req, res) => {
     reviewInsertCall(req,res);
+});
+
+router.post('/:productName/:productID', (req, res) => {
+    if(req.params.productName !== 'addReview') {
+        productQueryCall(req, res);
+    }
 });
 
 router.post('/likeCount/:formType/:formID', (req, res) => {
