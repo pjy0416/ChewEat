@@ -77,16 +77,22 @@ export default {
 
 <style scoped>
     .product-item {
-        width : 70%;
+        width : 90%;
         display : block;
         margin-left: auto;
         margin-right : auto;
     }
     .product-aligns { 
         display : inline-block;
+<<<<<<< HEAD
         width : 27%;   
         margin-left : 3%;
         margin-right : 2.5%;
+=======
+        width : 40%;   
+        margin-left : 5%;
+        margin-right : 5%;
+>>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         margin-bottom : 20px;
     }
     
@@ -118,6 +124,7 @@ export default {
     }
     .product-descript {
         margin-bottom : 10px;
+        min-height : 60px;
     }
     .descript-title{
         font-size : 1rem;
