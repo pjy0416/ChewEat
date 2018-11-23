@@ -4,13 +4,13 @@
             @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
 
             <b-carousel-slide 
-                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
+                img-src = 'https://i.postimg.cc/Ls3Wy458/footerimage1.jpg'>
             </b-carousel-slide>
             <b-carousel-slide
-                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
+                img-src = 'https://i.postimg.cc/s2s6ZFmd/footerimage2.jpg'>
             </b-carousel-slide>
             <b-carousel-slide 
-                img-src = 'https://i.postimg.cc/t4wq0KzR/Chew-Eat-image-2.jpg'>
+                img-src = 'https://i.postimg.cc/3JpQXTXd/footerimage3.jpg'>
             </b-carousel-slide>
         </b-carousel>
     </div>
