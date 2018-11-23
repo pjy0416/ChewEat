@@ -13,11 +13,9 @@
                     img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
                 </b-carousel-slide>
                 <b-carousel-slide
-                    img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
+                    img-src = 'https://i.postimg.cc/brVcmy6t/image-1.jpg'>
                 </b-carousel-slide>
-                <b-carousel-slide 
-                    img-src = 'https://i.postimg.cc/qBn1jHgX/pageslide.jpg'>
-                </b-carousel-slide>
+                
             </b-carousel>
         </div>
     </div>

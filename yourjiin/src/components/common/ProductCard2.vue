@@ -85,8 +85,9 @@ export default {
     .product-aligns { 
         display : inline-block;
         width : 27%;   
-        margin-left : 2.5%;
+        margin-left : 3%;
         margin-right : 2.5%;
+        margin-bottom : 20px;
     }
     
     .product-body-section {
@@ -134,5 +135,25 @@ export default {
     }
     .like-count .review-count {
         font-weight: 300;
+    }
+    @media (max-width : 1100px) {
+        .product-item {
+            width : 80%;
+        }
+        .product-aligns { 
+            width : 40%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+    }
+    @media (max-width : 500px) {
+        .product-item {
+            width : 90%;
+        }
+        .product-aligns { 
+            width : 80%;   
+            margin-left : 5%;
+            margin-right : 5%;
+        }
     }
 </style>
