@@ -6,9 +6,9 @@
         <div class = "section-image">
             <b-carousel id = "carousel" controls :interval="false"
                     v-model="slide">
-                <b-carousel-slide img-src='https://i.postimg.cc/HL3D3bRD/Kakao-Talk-20181118-231344455.png'></b-carousel-slide>
-                <b-carousel-slide img-src='https://i.postimg.cc/HL3D3bRD/Kakao-Talk-20181118-231344455.png'></b-carousel-slide>
-                <b-carousel-slide img-src='https://i.postimg.cc/HL3D3bRD/Kakao-Talk-20181118-231344455.png'></b-carousel-slide>
+                <b-carousel-slide img-src='https://i.postimg.cc/Ls3Wy458/footerimage1.jpg'></b-carousel-slide>
+                <b-carousel-slide img-src='https://i.postimg.cc/s2s6ZFmd/footerimage2.jpg'></b-carousel-slide>
+                <b-carousel-slide img-src='https://i.postimg.cc/3JpQXTXd/footerimage3.jpg'></b-carousel-slide>
             </b-carousel>
         </div>
     </div>

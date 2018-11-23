@@ -77,7 +77,9 @@ export default {
       .category-column {
         margin : 7px 0 7px 0;
       }
-      
+      .category-column:nth-last-child(2) {
+        border : none;
+      }
       
     }
 </style>

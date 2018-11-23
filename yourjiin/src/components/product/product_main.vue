@@ -4,14 +4,13 @@
             <div class = "product-header-section">
                 <div class = "product-header">
                     {{this.$store.state.checkedproduct.productName}}
-                    title
                 </div>
             </div>
             <div class = "product-body-section">
                 <div class = "product-body-section-left">
                     <div class = "image-section">
-                        <!-- <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/> -->
-                        <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/>
+                        <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/>
+                        <!-- <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/> -->
                     </div>
                 </div>
                 <div class = "product-body-section-right">
@@ -22,7 +21,7 @@
                                     <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
                                 </div>
                                 <div class = "text-top-left-body">
-                                    {{this.$store.state.checkedproduct.productMatrials}}Nutrient
+                                    {{this.$store.state.checkedproduct.productMatrials}}
                                 </div>
                             </div>
                             <div class = "text-top-right">
@@ -30,9 +29,9 @@
                                     <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Information
                                 </div>
                                 <div class = "text-top-right-body">
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.overWeight}}overWeight</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}perWeight</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}kcal</p>
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.overallWeight}}</p>
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}</p>
+                                    <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}</p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +41,7 @@
                                     <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
                                 </div>
                                 <div class = "text-bottom-left-body">
-                                    {{this.$store.state.checkedproduct.allergenic}}Allergenic
+                                    {{this.$store.state.checkedproduct.allergenic}}
                                 </div>
                             </div>
                             <div class = "text-bottom-right">
@@ -51,7 +50,7 @@
                                         <i class="far fa-heart fa-bold fa-lg" style= "margin-right:10px;"></i>Like &nbsp;
                                     </div>
                                     <div class = "text-like-body">
-                                        {{ this.$store.state.checkedproduct.likeCount }}10
+                                        {{ this.$store.state.checkedproduct.likeCount }}
                                     </div>
                                 </div>
                                 <div class = "text-review">
@@ -59,7 +58,7 @@
                                         <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>Review &nbsp;
                                     </div>
                                     <div class = "text-review-body">
-                                        {{this.$store.state.checkedproduct.review}}10
+                                        {{this.$store.state.checkedproduct.review}}
                                     </div>
                                 </div>
                             </div>
@@ -109,21 +108,23 @@ export default {
         this.productNameRoot = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1));
         this.productIDRoot = sessionStorage.getItem(sessionStorage.key(sessionStorage.length-2));
 
-        axios.post(`./information/review/${this.productNameRoot}/${this.productIDRoot}`, {
-            productID : this.productIDRoot
-        })
-            .then( response => {
-                this.$store.state.checkedproduct = response.data.product;
-            })
-            .catch( error => {
-                console.log(error);
-            });
         
-        axios.get(`./information/review/${this.productNameRoot}`)
-            .then(response =>
-                (this.$store.state.charts = response.data.nutrition))
-            .catch();
-
+            axios.post(`./information/review/${this.productNameRoot}/${this.productIDRoot}`, {
+                
+                productID : this.productIDRoot
+            })
+                .then( response => {
+                    this.$store.state.checkedproduct = response.data.product;
+                })
+                .catch( error => {
+                    console.log(error);
+                });
+            
+            axios.get(`./information/review/${this.productNameRoot}`)
+                .then(response =>
+                    (this.$store.state.charts = response.data.nutrition))
+                .catch();
+        
         
    },
    
@@ -152,12 +153,15 @@ export default {
 
 <style scoped>
     .product-container {
-        width : 70%;
         display : block;
+        width : 80%;
         margin : 0 auto;
     }
     .information-container {
+        width : 70%;
         background-color : white;
+        display : block;
+        margin : 0 auto;
     }
     .product-header {
         width : 60%;
@@ -245,7 +249,7 @@ export default {
     /* /////////////////////text//////////////// */
 
     .item-chart {
-        width : 60%;
+        width : 70%;
         display : block;
         margin : 50px auto 40px auto;
     }
@@ -293,6 +297,9 @@ export default {
         }
     }
     @media (max-width : 700px) {
+        .product-container {
+            width : 90%;
+        }
         .item-chart {
             width : 100%;
         }
@@ -302,14 +309,16 @@ export default {
     }
     @media (max-width : 520px) {
         .product-container {
+            width : 100%;
+        }
+        .information-container {
             width : 90%;
         }
         .product-body-section-right {
             width : 90%;
         }
         .text-section {
-            padding : 0;
-            margin-bottom : 20px;
+            padding : 20px;
         }
         .item-chart {
             margin : 30px auto 30px auto;

@@ -36,9 +36,9 @@ export default {
                             'rgba(0, 0, 0, 0.1)',
                             'rgba(0, 0, 0, 0.1)'
                         ],
-                        data: [this.$store.state.charts[0].NATRIUM, this.$store.state.charts[0].CARBOHYDRATE,
-                        this.$store.state.charts[0].SUGARS, this.$store.state.charts[0].FAT,
-                        this.$store.state.charts[0].CHOLESTEROL, this.$store.state.charts[0].PROTEIN]
+                        data: [this.$store.state.charts[0].natrium, this.$store.state.charts[0].carbohydrate,
+                        this.$store.state.charts[0].sugars, this.$store.state.charts[0].fat,
+                        this.$store.state.charts[0].cholesterol, this.$store.state.charts[0].protein]
                     }],
                     labels: ["Natrium", "Carbohydrate", "Sugars", "Fat", "Cholesterol" , "Protein"],
                 },
@@ -68,7 +68,7 @@ export default {
                     },
                 }
             });
-        }, 200);
+        }, 100);
     }
 }
 </script>
