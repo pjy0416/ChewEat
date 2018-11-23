@@ -1,19 +1,15 @@
 <template>
-    <div>      
+    <div>   
         <product-card></product-card>
-        <!-- <product-card2 v-else></product-card2> -->
     </div>
 </template>
 
 <script>
-import ProductCard from '../../common/ProductCard.vue';
+import ProductCard from '../../common/ProductCard2.vue';
 
 export default {
-    data() {
-
-    },
     components : {
-        ProductCard,
+        ProductCard
     }
 }
 </script>

@@ -4,22 +4,13 @@
             <div class = "product-header-section">
                 <div class = "product-header">
                     {{this.$store.state.checkedproduct.productName}}
-<<<<<<< HEAD
-=======
-                    title
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                 </div>
             </div>
             <div class = "product-body-section">
                 <div class = "product-body-section-left">
                     <div class = "image-section">
-<<<<<<< HEAD
                         <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/>
                         <!-- <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/> -->
-=======
-                        <!-- <b-img class = "item-img" :src="this.$store.state.checkedproduct.url" fluid alt="image"/> -->
-                        <b-img class = "item-img" src="https://i.postimg.cc/FsGJ5tZM/example.jpg" fluid alt="image"/>
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                     </div>
                 </div>
                 <div class = "product-body-section-right">
@@ -30,11 +21,7 @@
                                     <i class="fas fa-apple-alt fa-lg" style="margin-right:10px;" ></i>Nutrient
                                 </div>
                                 <div class = "text-top-left-body">
-<<<<<<< HEAD
                                     {{this.$store.state.checkedproduct.productMatrials}}
-=======
-                                    {{this.$store.state.checkedproduct.productMatrials}}Nutrient
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                                 </div>
                             </div>
                             <div class = "text-top-right">
@@ -42,15 +29,9 @@
                                     <i class="far fa-comment-dots fa-bold fa-lg" style="margin-right:10px;"></i>Information
                                 </div>
                                 <div class = "text-top-right-body">
-<<<<<<< HEAD
                                     <p class = "information-p">{{this.$store.state.checkedproduct.overallWeight}}</p>
                                     <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}</p>
                                     <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}</p>
-=======
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.overWeight}}overWeight</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.perWeight}}perWeight</p>
-                                    <p class = "information-p">{{this.$store.state.checkedproduct.kcal}}kcal</p>
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                                 </div>
                             </div>
                         </div>
@@ -60,11 +41,7 @@
                                     <i class="fas fa-exclamation-circle fa-bold fa-lg" style="margin-right:10px;" ></i>Allergenic
                                 </div>
                                 <div class = "text-bottom-left-body">
-<<<<<<< HEAD
                                     {{this.$store.state.checkedproduct.allergenic}}
-=======
-                                    {{this.$store.state.checkedproduct.allergenic}}Allergenic
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                                 </div>
                             </div>
                             <div class = "text-bottom-right">
@@ -73,11 +50,7 @@
                                         <i class="far fa-heart fa-bold fa-lg" style= "margin-right:10px;"></i>Like &nbsp;
                                     </div>
                                     <div class = "text-like-body">
-<<<<<<< HEAD
                                         {{ this.$store.state.checkedproduct.likeCount }}
-=======
-                                        {{ this.$store.state.checkedproduct.likeCount }}10
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                                     </div>
                                 </div>
                                 <div class = "text-review">
@@ -85,11 +58,7 @@
                                         <i class="far fa-user fa-bold fa-lg" style="margin-right:10px;"></i>Review &nbsp;
                                     </div>
                                     <div class = "text-review-body">
-<<<<<<< HEAD
                                         {{this.$store.state.checkedproduct.review}}
-=======
-                                        {{this.$store.state.checkedproduct.review}}10
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
                                     </div>
                                 </div>
                             </div>
@@ -184,20 +153,12 @@ export default {
 
 <style scoped>
     .product-container {
-<<<<<<< HEAD
         display : block;
         width : 80%;
         margin : 0 auto;
     }
     .information-container {
         width : 70%;
-=======
-        width : 70%;
-        display : block;
-        margin : 0 auto;
-    }
-    .information-container {
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         background-color : white;
         display : block;
         margin : 0 auto;
@@ -336,12 +297,9 @@ export default {
         }
     }
     @media (max-width : 700px) {
-<<<<<<< HEAD
         .product-container {
             width : 90%;
         }
-=======
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         .item-chart {
             width : 100%;
         }
@@ -351,26 +309,16 @@ export default {
     }
     @media (max-width : 520px) {
         .product-container {
-<<<<<<< HEAD
             width : 100%;
         }
         .information-container {
             width : 90%;
         }
-=======
-            width : 90%;
-        }
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         .product-body-section-right {
             width : 90%;
         }
         .text-section {
-<<<<<<< HEAD
             padding : 20px;
-=======
-            padding : 0;
-            margin-bottom : 20px;
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6
         }
         .item-chart {
             margin : 30px auto 30px auto;
@@ -380,8 +328,4 @@ export default {
         }
         
     }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 6bec7af0f68e5d30aedc817fdfedf0198f3bc4c6

@@ -1,20 +1,18 @@
 <template>
     <div>      
         <product-card></product-card>
-        <!-- <product-card2 v-else></product-card2> -->
     </div>
 </template>
 
+
 <script>
-import ProductCard from '../../common/ProductCard.vue';
+// param id가 있고, selected 가 있는 상태
+import ProductCard from '../../common/ProductCard2.vue';
 
 export default {
-    data() {
-
-    },
     components : {
-        ProductCard,
-    }
+        ProductCard
+    },
 }
 </script>
 
